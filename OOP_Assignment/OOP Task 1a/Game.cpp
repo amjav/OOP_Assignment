@@ -2,9 +2,11 @@
 
 void Game::Setup()
 {
+    //created white wall blocks however player can still run through them currently
     walls.push_back(Wall(4, 7));
     walls.push_back(Wall(9, 15));
     walls.push_back(Wall(15, 4));
+
 }
 
 void Game::ProcessInput(int key)
@@ -15,6 +17,7 @@ void Game::ProcessInput(int key)
 /// <summary>
 /// This function builds up a 2D grid of characters representing the current state of the game.
 /// The characters are later used to decide which colour sqaure to display, but you could display images instead.
+///     maybe use emojis 
 /// </summary>
 vector<vector<char>> Game::PrepareGrid()
 {
