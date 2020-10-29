@@ -18,4 +18,5 @@ class Game
       vector<vector<char>> PrepareGrid();
       bool IsRunning();
       bool IsWallAtPosition(int x, int y);
+      //to do: make player private and then create get set functiions.
 };

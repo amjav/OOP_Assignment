@@ -29,6 +29,7 @@ void Player::Move(int key)
 {
     switch (key)
     {
+        //maybe add in continuous move keys
     case KEY_LEFT:
         dx = -1;
         dy = 0;

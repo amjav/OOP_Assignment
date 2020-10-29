@@ -9,7 +9,7 @@ class Wall
 {
     public:
         // constructors
-        Wall();
+        Wall() = default;
         Wall(int x, int y);
 
         // assessors
@@ -22,4 +22,5 @@ class Wall
         // data members
         char symbol;
         int x, y;
+        //initialise or remove empty constructor.
 };

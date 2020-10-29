@@ -3,11 +3,15 @@
 
 int main()
 {
-    InitWindow(900, 600, "OOP Assignment 1");
+    InitWindow(1000, 700, "OOP Assignment 1");
+    //window size for grid and title of window
     SetTargetFPS(60);
+    //framerate (FPS - Frames per second)
 
     Game game;
+    //creating a game object
     game.Setup();
+    //setting up game object
 
     while (!WindowShouldClose())
     {
@@ -27,6 +31,7 @@ int main()
         }
 
         const int cellSize = (int)((float)GetScreenHeight() / (float)(SIZE));
+        //Allows grid to expand to the size of the window
 
         const auto grid = game.PrepareGrid();
 
