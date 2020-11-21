@@ -20,6 +20,25 @@ char Player::GetSymbol() const
     return symbol;
 }
 
+void Player::SetAlive() {
+ // alive =
+}
+
+bool Player::GetAlive()
+{
+    return alive;
+}
+
+void Player::SetEscaped() {
+ // escaped =
+}
+
+bool Player:: GetEscaped() {
+
+    
+    return escaped;
+}
+
 bool Player::IsAtPosition(int x, int y)
 {
     return this->x == x && this->y == y;
@@ -69,3 +88,4 @@ void Player::PositionInMiddleOfGrid()
     x = SIZE / 2;
     y = SIZE / 2;
 }
+

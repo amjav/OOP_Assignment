@@ -11,12 +11,19 @@ using namespace std;
 class Game
 {
    public:
-      Player player;
-      vector<Wall> walls;
       void Setup();
       void ProcessInput(int key);
-      vector<vector<char>> PrepareGrid();
       bool IsRunning();
       bool IsWallAtPosition(int x, int y);
+      vector<vector<char>> PrepareGrid();
+
+      
+
       //to do: make player private and then create get set functiions.
+
+      //made variables private
+    private:
+      Player player;
+      vector<Wall> walls;
+     
 };
