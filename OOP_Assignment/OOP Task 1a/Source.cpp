@@ -44,8 +44,8 @@ int main()
 
                 switch (grid[y][x])
                 {
-                    case FLOOR:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, DARKGREEN); break;
-                    case WALL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, LIGHTGRAY); break;
+                    case FLOOR:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, SKYBLUE); break;
+                    case WALL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BROWN); break;
                     case PLAYER: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);     break;
                     default:     assert(false);  // if this hits you probably forgot to add your new tile type :)
                 }

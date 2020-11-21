@@ -7,6 +7,8 @@ void Game::Setup()
     walls.push_back(Wall(9, 15));
     walls.push_back(Wall(15, 4));
 
+    //Get level which return the coordinates for the wall of the levels.
+
 }
 
 void Game::ProcessInput(int key)
