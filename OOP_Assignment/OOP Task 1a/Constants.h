@@ -6,8 +6,13 @@
 // symbols used for storing where things are
 #define PLAYER    'P'
 #define HOLE      'H'
-#define WALL      'W'
-#define FLOOR     'F'
+#define WALL      '#'
+#define PATH      '~'
+#define GATE      'Y','V','R','G','O','D','L','M'      
+#define PATH_KEY  'y','v','r','g','o','d','l','m','e'
+#define START	  'S'
+#define END		  'E'
+
 
 // the command letters to move the mouse on the maze
 #define KEY_RIGHT 262
