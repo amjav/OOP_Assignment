@@ -1,4 +1,9 @@
 #include "Levels.h"
+#include <string>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
 
 void Levels::GetLevel() {
 
@@ -12,54 +17,85 @@ void Levels::GetLevel() {
 }*/
 
 void Levels::CreateLevels() {
-   
-    //TO DO:
-    //Questions
-    //why in the wall symbol set to hole in the wall.cpp file? ANS: mistake 
-    //does this intiate all places in the grid as holes automatically? ANS: 
-    //is it best to create seperate vector for a level ? for example an vector for wall and a vector for floor?
-    //is there a possible way to ahve one vector for all?
+ 
 
+		//USE A TEXT FILE TO INTIATE LEVELS
 
-    //USE A TEXT FILE TO INTIATE LEVELS
+	   // Create a text string, which is used to output the text file
+	string myText;
 
-    
+	// Read from the text file
+	ifstream MyReadFile("level1.txt");
 
+	// Use a while loop together with the getline() function to read the file line by line
+	while (getline (MyReadFile, myText)) {
+	  // Output the text from the file
+	 // cout << myText << endl;
 
+	
 
-for (int x = 0; x < SIZE; x++)
-    {
-        for (int y = 0; y < SIZE; y++)
-        {
-            //TO DO: if statement to work out if coords has a floor assigned to it already or if it can be filled with a wall.
-            //if( )    
-        
-        Level1.push_back(Wall(x, y));
-            //walls
-       
-        }
+		for (int i = 0; i < SIZE; i++)
+		{
+			
+			char c = myText[i];
 
-    }
+			for (int j = 0; j < SIZE; j++) {
+				switch (c) {
+					case '#':
+						break;
+					case '~':
+						break;
+					case 'P':
+						break;
+					case 'H' :
+						break;
+					case 'E' :
+						break;
+					case 'S' :
+						break;
+					case 'Y' :
+						break;
+					case 'V' :
+						break;
+					case 'R' :
+						break;
+					case 'G' :
+						break;
+					case 'O' :
+						break;
+					case 'D' :
+						break;
+					case 'y' :
+						break;
+					case 'L' :
+						break;
+					case 'M' :
+						break;
+					case 'v' :
+						break;
+					case 'r' :
+						break;
+					case 'g' :
+						break;
+					case 'o' :
+						break;
+					case 'd' :
+						break;
+					case 'l' :
+						break;
+					case 'm' :
+						break;
+					
+				}
+					
+			}
+			}
+		}
+	 
+	}
 
-
-
-        //Level2.push_back(Wall(, ));
-        //Level2.push_back(Wall(,))
-        //Level2.push_back(Wall(,))
-        //Level2.push_back(Wall(,))
-        //Level2.push_back(Wall(,))
-        //Level2.push_back(Wall(,))
-        //Level2.push_back(Wall(,))
-        //
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
-        //Level3.push_back(Wall(,))
+	// Close the file
+	MyReadFile.close();
 
 }
 

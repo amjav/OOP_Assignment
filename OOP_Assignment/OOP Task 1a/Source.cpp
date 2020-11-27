@@ -1,6 +1,8 @@
 #include "raylib.h"
 #include "Game.h"
 
+#include "Levels.h"
+
 int main()
 {
     InitWindow(1000, 700, "OOP Assignment 1");
@@ -44,7 +46,7 @@ int main()
 
                 switch (grid[y][x])
                 {
-                    case FLOOR:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, SKYBLUE); break;
+                    case PATH:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, SKYBLUE); break;
                     case WALL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BROWN); break;
                     case PLAYER: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);     break;
                     default:     assert(false);  // if this hits you probably forgot to add your new tile type :)
@@ -60,4 +62,6 @@ int main()
 
     CloseWindow();
     return 0;
+
+
 }
