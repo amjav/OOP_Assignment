@@ -1,6 +1,5 @@
-﻿  Levels.cpp
-  Player.cpp
-  Wall.cpp
+﻿  Game.cpp
+  Levels.cpp
   Generating Code...
   raylib_static.lib(core.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
