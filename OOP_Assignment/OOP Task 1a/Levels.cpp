@@ -11,14 +11,18 @@ void Levels::GetLevel() {
 
 }*/
 
-void Levels :: CreateLevels() {
+void Levels::CreateLevels() {
    
     //TO DO:
     //Questions
-    //why in the wall symbol set to hole in the wall.cpp file?
-    //does this intiate all places in the grid as holes automatically?
+    //why in the wall symbol set to hole in the wall.cpp file? ANS: mistake 
+    //does this intiate all places in the grid as holes automatically? ANS: 
     //is it best to create seperate vector for a level ? for example an vector for wall and a vector for floor?
     //is there a possible way to ahve one vector for all?
+
+
+    //USE A TEXT FILE TO INTIATE LEVELS
+
     
 
 

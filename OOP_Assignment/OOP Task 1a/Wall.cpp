@@ -2,7 +2,7 @@
 
 Wall::Wall(int x, int y)
 {
-    symbol = HOLE;
+    symbol = WALL;
     this->x = x;
     this->y = y;
 }
