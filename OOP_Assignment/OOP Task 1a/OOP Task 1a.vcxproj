@@ -137,7 +137,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gate_Key.cpp" />
+    <ClCompile Include="Keys.cpp" />
     <ClCompile Include="Levels.cpp" />
+    <ClCompile Include="Path.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -146,7 +149,10 @@
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Gate_Key.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="Levels.h" />
+    <ClInclude Include="Path.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="Wall.h" />

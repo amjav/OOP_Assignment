@@ -9,7 +9,7 @@
 #define WALL      '#'
 #define PATH      '~'
 #define GATE      'Y','V','R','G','O','D','L','M'      
-#define PATH_KEY  'y','v','r','g','o','d','l','m','e'
+#define GATE_KEY  'y','v','r','g','o','d','l','m','e'
 #define START	  'S'
 #define END		  'E'
 
