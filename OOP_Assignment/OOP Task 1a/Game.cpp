@@ -45,7 +45,7 @@ vector<vector<char>> Game::PrepareGrid()
             }
             else
             {
-                line.push_back(FLOOR);
+                line.push_back(PATH);
             }
         }
 
