@@ -1,4 +1,8 @@
 #include "Levels.h"
+#include "Wall.h"
+#include "Path.h"
+#include "Keys.h"
+#include "Gate.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -27,74 +31,98 @@ void Levels::CreateLevels() {
 	// Read from the text file
 	ifstream MyReadFile("level1.txt");
 
+	//lineNumber
+	int LineNumber = 0;
+	
 	// Use a while loop together with the getline() function to read the file line by line
-	while (getline(MyReadFile, myText)) {
+   	while (getline(MyReadFile, myText)) {
 		// Output the text from the file
 	  
 			cout << myText << endl;
 
+			
+		  for (int i = 0; i < SIZE; i++)
+		  {
+			char c = myText[i];
 
-		//for (int i = 0; i < SIZE; i++)
-		//{
-		//	char c = myText[i];
+				switch (c) 
+				{
+					case '#':
+						Wall::Wall(i, LineNumber);
+					break;
+					case '~':
+						Path::Path(i, LineNumber);
+						break;
+					case 'P':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'H':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'E':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'S':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'Y':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'V':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'R':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'G':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'O':
+						Gate::Gate(i, LineNumber);	
+						break;
+					case 'D':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'L':
+						Gate::Gate(i, LineNumber);
+						break;
+					case 'M':
+						Gate::Gate(i, LineNumber);	
+						break;
+					case 'v':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'r':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'g':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'o':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'd':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'l':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'm':
+						Keys::Keys(i, LineNumber);
+						break;
+					case 'y':
+						Keys::Keys(i, LineNumber);
+						break;
 
-		//	for (int j = 0; j < SIZE; j++) {
-		//		switch (c) {
-		//		case '#':
-		//			//walls.push_back(Wall(i, j));
-		//			break;
-		//		case '~':
-		//			break;
-		//		case 'P':
-		//			break;
-		//		case 'H':
-		//			break;
-		//		case 'E':
-		//			break;
-		//		case 'S':
-		//			break;
-		//		case 'Y':
-		//			break;
-		//		case 'V':
-		//			break;
-		//		case 'R':
-		//			break;
-		//		case 'G':
-		//			break;
-		//		case 'O':
-		//			break;
-		//		case 'D':
-		//			break;
-		//		case 'y':
-		//			break;
-		//		case 'L':
-		//			break;
-		//		case 'M':
-		//			break;
-		//		case 'v':
-		//			break;
-		//		case 'r':
-		//			break;
-		//		case 'g':
-		//			break;
-		//		case 'o':
-		//			break;
-		//		case 'd':
-		//			break;
-		//		case 'l':
-		//			break;
-		//		case 'm':
-		//			break;
-
-		//		}
-
-		//	}
-		//}
+				}
+				
+		  }	
+			LineNumber += 1;
 	}
-
-	// Close the file
-	MyReadFile.close();
 }
+
+
+
 
 
 

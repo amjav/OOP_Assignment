@@ -5,7 +5,7 @@
 
 Keys::Keys(int x, int y)
 {
-    symbol = GATE_KEY;
+    symbol = GATE;
     this->x = x;
     this->y = y;
 }

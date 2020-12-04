@@ -137,7 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Gate_Key.cpp" />
+    <ClCompile Include="Gate.cpp" />
     <ClCompile Include="Keys.cpp" />
     <ClCompile Include="Levels.cpp" />
     <ClCompile Include="Path.cpp" />
@@ -149,7 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="Gate_Key.h" />
+    <ClInclude Include="Gate.h" />
     <ClInclude Include="Keys.h" />
     <ClInclude Include="Levels.h" />
     <ClInclude Include="Path.h" />
