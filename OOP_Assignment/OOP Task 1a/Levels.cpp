@@ -3,6 +3,7 @@
 #include "Path.h"
 #include "Keys.h"
 #include "Gate.h"
+#include "Game.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -31,6 +32,11 @@ void Levels::CreateLevels() {
 	// Read from the text file
 	ifstream MyReadFile("level1.txt");
 
+	if (MyReadFile.is_open())
+	{
+		cout << "This is open";
+	}
+
 	//lineNumber
 	int LineNumber = 0;
 	
@@ -38,9 +44,8 @@ void Levels::CreateLevels() {
    	while (getline(MyReadFile, myText)) {
 		// Output the text from the file
 	  
-			cout << myText << endl;
+		  //cout << myText << endl;
 
-			
 		  for (int i = 0; i < SIZE; i++)
 		  {
 			char c = myText[i];
@@ -49,7 +54,8 @@ void Levels::CreateLevels() {
 				{
 					case '#':
 						Wall::Wall(i, LineNumber);
-					break;
+						walls.push_back(Wall(i, LineNumber));
+						break;
 					case '~':
 						Path::Path(i, LineNumber);
 						break;

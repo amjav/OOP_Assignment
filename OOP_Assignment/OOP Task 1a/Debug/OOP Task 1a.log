@@ -1,13 +1,12 @@
-﻿  Source.cpp
-  raylib_static.lib(core.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Generating code
-  Finished generating code
-raylib_static.lib(core.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib_static.lib(core.obj)' or at 'C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\raylib.pdb'; linking object as if no debug info
-raylib_static.lib(shapes.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib_static.lib(shapes.obj)' or at 'C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\raylib.pdb'; linking object as if no debug info
-raylib_static.lib(text.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib_static.lib(text.obj)' or at 'C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\raylib.pdb'; linking object as if no debug info
-raylib_static.lib(rglfw.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib_static.lib(rglfw.obj)' or at 'C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\raylib.pdb'; linking object as if no debug info
-raylib_static.lib(textures.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib_static.lib(textures.obj)' or at 'C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\raylib.pdb'; linking object as if no debug info
-raylib_static.lib(utils.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib_static.lib(utils.obj)' or at 'C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\raylib.pdb'; linking object as if no debug info
-  OOP Task 1a.vcxproj -> C:\Users\soray\OneDrive - Sheffield Hallam University\Year2\OOP\OOP_Assignment\OOP_Assignment\Debug\OOP Task 1a.exe
+﻿  Game.cpp
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Game.cpp(21,5): error C2143: syntax error: missing ';' before '}'
+  Gate.cpp
+  Keys.cpp
+  Levels.cpp
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.cpp(57,7): error C2065: 'walls': undeclared identifier
+  Path.cpp
+  Player.cpp
+  RandomNumberGenerator.cpp
+  Source.cpp
+  Wall.cpp
+  Generating Code...

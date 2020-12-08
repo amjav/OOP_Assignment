@@ -1,15 +1,25 @@
 #include "Game.h"
+#include "Levels.h"
 
 void Game::Setup()
 {
     //created white wall blocks however player can still run through them currently
-    walls.push_back(Wall(4, 7));
+    /*walls.push_back(Wall(4, 7));
     walls.push_back(Wall(9, 15));
-    walls.push_back(Wall(15, 4));
+    walls.push_back(Wall(15, 4));*/
+
+    Levels l1;
+    l1.CreateLevels();
+
 
     //Get level which return the coordinates for the wall of the levels.
 
 }
+
+//need to do this for the other vectors.
+    void Game::AddWall(int i, int j) {
+        walls.push_back(Wall(i, j));
+    }
 
 void Game::ProcessInput(int key)
 {
