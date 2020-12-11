@@ -3,9 +3,10 @@
 
 //tile types may inlcude inheritence
 
+//that we need to pass in the symbol as a parameter
 Keys::Keys(int x, int y)
 {
-    symbol = GATE;
+    symbol = KEYS;
     this->x = x;
     this->y = y;
 }

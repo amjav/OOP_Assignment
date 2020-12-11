@@ -1,12 +1,44 @@
 ﻿  Game.cpp
-C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Game.cpp(21,5): error C2143: syntax error: missing ';' before '}'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(17,10): error C2065: 'Keys': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(17,3): error C2923: 'std::vector': 'Keys' is not a valid template type argument for parameter '_Ty'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(17,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(18,10): error C2065: 'Gate': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(18,3): error C2923: 'std::vector': 'Gate' is not a valid template type argument for parameter '_Ty'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(18,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(19,10): error C2065: 'Path': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(19,3): error C2923: 'std::vector': 'Path' is not a valid template type argument for parameter '_Ty'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(19,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Game.cpp(59,40): error C2661: 'std::vector<char,std::allocator<char>>::push_back': no overloaded function takes 9 arguments
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Game.cpp(63,40): error C2661: 'std::vector<char,std::allocator<char>>::push_back': no overloaded function takes 8 arguments
   Gate.cpp
   Keys.cpp
   Levels.cpp
-C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.cpp(57,7): error C2065: 'walls': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Game.h(37,16): error C3646: 'l1': unknown override specifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Game.h(37,16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.cpp(75,18): error C2440: 'return': cannot convert from '_Ty' to 'char'
+          with
+          [
+              _Ty=Keys
+          ]
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.cpp(75,17): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
   Path.cpp
   Player.cpp
   RandomNumberGenerator.cpp
   Source.cpp
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(17,10): error C2065: 'Keys': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(17,3): error C2923: 'std::vector': 'Keys' is not a valid template type argument for parameter '_Ty'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(17,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(18,10): error C2065: 'Gate': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(18,3): error C2923: 'std::vector': 'Gate' is not a valid template type argument for parameter '_Ty'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(18,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(19,10): error C2065: 'Path': undeclared identifier
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(19,3): error C2923: 'std::vector': 'Path' is not a valid template type argument for parameter '_Ty'
+C:\Users\User\OneDrive - Sheffield Hallam University\Year 2\OOP_Assignment\OOP_Assignment\OOP Task 1a\Levels.h(19,3): error C2976: 'std::vector': too few template arguments
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\vector(413): message : see declaration of 'std::vector'
   Wall.cpp
   Generating Code...
