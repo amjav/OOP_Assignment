@@ -1,9 +1,9 @@
 #include "Gate.h"
 #include "Constants.h"
 
-Gate::Gate(int x, int y)
+Gate::Gate(int x, int y, char sym)
 {
-    symbol = GATE;
+    symbol = sym;
     this->x = x;
     this->y = y;
 }

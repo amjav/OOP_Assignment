@@ -7,9 +7,8 @@
 #define PLAYER    'P'
 #define HOLE      'H'
 #define WALL      '#'
-#define PATH      '~'
-#define GATE      'Y','V','R','G','O','D','L','M'      
-#define KEYS      'y','v','r','g','o','d','l','m','e'
+#define PATH      '~'  
+
 #define START	  'S'
 #define END		  'E'
 

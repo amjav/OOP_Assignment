@@ -1,10 +1,14 @@
 #pragma once
-class Gate
+#include <assert.h>
+#include "constants.h"
+using namespace std;
+
+class Hole
 {
     public:
         // constructors
-        Gate() = default;
-        Gate(int x, int y, char sym);
+        Hole() = default;
+        Hole(int x, int y);
 
         // assessors
         int GetX();
@@ -18,4 +22,6 @@ class Gate
         int x, y;
         //initialise or remove empty constructor.
 };
+
+
 

@@ -1,11 +1,11 @@
 #pragma once
-class Keys
+class Key
 {
 
 	public:
     // constructors
-    Keys() = default;
-    Keys(int x, int y);
+    Key() = default;
+    Key(int x, int y, char sym);
 
     // assessors
     int GetX();
