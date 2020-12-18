@@ -1,17 +1,27 @@
 #include "Levels.h"
 #include "Wall.h"
 #include "Path.h"
-#include "Keys.h"
+#include "Key.h"
 #include "Gate.h"
-#include "Game.h"
 #include <string>
 #include <iostream>
 #include <fstream>
-using namespace std;
+//using namespace std;
 
+	/*void Levels::GetLevel() {
 
-	void Levels::GetLevel() {
+	}*/
 
+	bool Levels::IsHoleAtPosition(int x, int y) {
+		for (size_t i = 0; i < holes.size(); ++i)
+		{
+			if (holes[i].IsAtPosition(x, y))
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	bool Levels::IsWallAtPosition(int x, int y)
@@ -40,26 +50,26 @@ using namespace std;
 		return false;
 	}
 
-	bool Levels::IsGateAtPosition(int x, int y)
+	char Levels::IsGateAtPosition(int x, int y)
 	{
 		for (size_t i = 0; i < gate.size(); ++i)
 		{
 			if (gate[i].IsAtPosition(x, y))
 			{
-				return true;
+				return gate[i].GetSymbol();
 			}
 		}
 
-		return false;
+		return 0;
 	}
 
 	char Levels::IsKeyAtPosition(int x, int y)
 	{
-		for (size_t i = 0; i < Key.size(); ++i)
+		for (size_t i = 0; i < Keys.size(); ++i)
 		{
-			if (Key[i].IsAtPosition(x, y))
+			if (Keys[i].IsAtPosition(x, y))
 			{
-				return Key[i].GetSymbol();
+				return Keys[i].GetSymbol();
 			}
 		}
 
@@ -72,16 +82,20 @@ using namespace std;
 		walls.push_back(Wall(i, j));
 	}
 
-	void Levels::AddKey(int i, int j) {
-		Key.push_back(Keys(i, j));
+	void Levels::AddKey(int i, int j, char symbol) {
+		Keys.push_back(Key(i, j, symbol));
 	}
 
-	void Levels::AddGate(int i, int j) {
-		gate.push_back(Gate(i, j));
+	void Levels::AddGate(int i, int j, char symbol) {
+		gate.push_back(Gate(i, j, symbol));
 	}
 
 	void Levels::AddPath(int i, int j) {
 		path.push_back(Path(i, j));
+	}
+
+	void Levels::AddHole(int i, int j) {
+		holes.push_back(Hole(i, j));
 	}
 
 	void Levels::CreateLevels() {
@@ -95,10 +109,10 @@ using namespace std;
 		// Read from the text file
 		ifstream MyReadFile("level1.txt");
 
-		if (MyReadFile.is_open())
+		/*if (MyReadFile.is_open())
 		{
 			cout << "This is open";
-		}
+		}*/
 
 		//lineNumber
 		int LineNumber = 0;
@@ -116,93 +130,72 @@ using namespace std;
 				switch (c)
 				{
 				case '#':
-					//Wall::Wall(i, LineNumber);
 					AddWall(i, LineNumber);
 					break;
 				case '~':
-					//Path::Path(i, LineNumber);
 					AddPath(i, LineNumber);
 					break;
-				case 'P':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
-					break;
 				case 'H':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddHole(i, LineNumber);
 					break;
 				case 'E':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber, 'E');
 					break;
 				case 'S':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber, 'S');
 					break;
 				case 'Y':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber, 'Y');
 					break;
 				case 'V':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber, 'V');
 					break;
 				case 'R':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber,'R');
 					break;
 				case 'G':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber,'G');
 					break;
-				case 'O':
-					//Gate::Gate(i, LineNumber);	
-					AddGate(i, LineNumber);
+				case 'O':	
+					AddGate(i, LineNumber,'O');
 					break;
 				case 'D':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber,'D');
 					break;
 				case 'L':
-					//Gate::Gate(i, LineNumber);
-					AddGate(i, LineNumber);
+					AddGate(i, LineNumber, 'L');
 					break;
-				case 'M':
-					//Gate::Gate(i, LineNumber);	
-					AddGate(i, LineNumber);
+				case 'M':	
+					AddGate(i, LineNumber, 'M');
 					break;
 				case 'v':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber,'v');
 					break;
 				case 'r':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber, 'r');
 					break;
 				case 'g':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber, 'g');
 					break;
 				case 'o':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber,'o');
 					break;
 				case 'd':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber,'d');
 					break;
 				case 'l':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber,'l');
 					break;
 				case 'm':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber,'m');
 					break;
 				case 'y':
-					//Keys::Keys(i, LineNumber);
-					AddKey(i, LineNumber);
+					AddKey(i, LineNumber,'y');
 					break;
+
+				default:
+					AddWall(i, LineNumber);
+					assert(false);
 
 				}
 

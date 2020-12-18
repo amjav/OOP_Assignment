@@ -31,6 +31,7 @@ int main()
             DrawText("TODO: Why did the game end?", 610, 10, 20, LIGHTGRAY);
         }
 
+        // this is 35, unless you change the window size (don't change the window size)
         const int cellSize = (int)((float)GetScreenHeight() / (float)(SIZE));
         //Allows grid to expand to the size of the window
 
@@ -45,9 +46,38 @@ int main()
 
                 switch (grid[y][x])
                 {
-                    case PATH:  DrawRectangle(xPosition, yPosition, cellSize, cellSize, SKYBLUE); break;
-                    case WALL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BROWN); break;
-                    case PLAYER: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);     break;
+                    case PATH:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, SKYBLUE);  break;
+                    case WALL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BROWN);    break;
+                    case PLAYER: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);    break;
+                    case HOLE:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLACK);    break;
+
+                    //GATES
+                    // case 'Y': DrawTexture(gate, xPosition, yPosition, YELLOW);
+                    case 'Y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
+                    case 'V': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
+                    case 'R': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
+                    case 'G': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
+                    case 'O': DrawRectangle(xPosition, yPosition, cellSize, cellSize, ORANGE);  break;
+                    case 'D': DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLUE);    break;
+                    case 'L': DrawRectangle(xPosition, yPosition, cellSize, cellSize, LIME);    break;
+                    case 'M': DrawRectangle(xPosition, yPosition, cellSize, cellSize, MAGENTA); break;
+
+                    //KEYS
+                    case 'y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
+                    case 'v': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
+                    case 'r': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
+                    case 'g': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
+                    case 'o': DrawRectangle(xPosition, yPosition, cellSize, cellSize, ORANGE);  break;
+                    case 'd': DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLUE);    break;
+                    case 'l': DrawRectangle(xPosition, yPosition, cellSize, cellSize, LIME);    break;
+                    case 'm': DrawRectangle(xPosition, yPosition, cellSize, cellSize, MAGENTA); break;
+
+                    //START + END
+                    case START: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);   break;
+                    case END: DrawRectangle(xPosition, yPosition, cellSize, cellSize, RED);       break;
+                    case 'e': DrawRectangle(xPosition, yPosition, cellSize, cellSize, RED);       break;
+
+
                     default:     assert(false);  // if this hits you probably forgot to add your new tile type :)
                 }
 
@@ -61,10 +91,6 @@ int main()
 
     CloseWindow();
     return 0;
-
-    //Levels l;
-
-    //l.CreateLevels();
 
 
 
