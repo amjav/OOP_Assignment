@@ -8,6 +8,7 @@ int main()
     //window size for grid and title of window
     SetTargetFPS(60);
     //framerate (FPS - Frames per second)
+    Texture2D TexKey = LoadTexture("Key.png");
 
     Game game;
     //creating a game object
@@ -37,7 +38,6 @@ int main()
 
         const auto grid = game.PrepareGrid();
 
-        Texture2D TexKey = LoadTexture("OOP Task 1a\Key");
 
         for (int x = 0; x < SIZE; x++)
         {
@@ -54,8 +54,8 @@ int main()
                     case HOLE:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLACK);    break;
 
                     //GATES
-                    case 'Y': DrawTexture(TexKey, xPosition, yPosition, YELLOW);
-                    //case 'Y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
+                    //case 'Y': DrawTexture(TexKey, xPosition, yPosition, YELLOW);
+                    case 'Y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
                     case 'V': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
                     case 'R': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
                     case 'G': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
@@ -65,7 +65,8 @@ int main()
                     case 'M': DrawRectangle(xPosition, yPosition, cellSize, cellSize, MAGENTA); break;
 
                     //KEYS
-                    case 'y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
+                    case 'y': DrawTexture(TexKey, xPosition, yPosition, YELLOW); break;
+                    //case 'y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
                     case 'v': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
                     case 'r': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
                     case 'g': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
