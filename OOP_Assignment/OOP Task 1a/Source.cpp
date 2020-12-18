@@ -37,6 +37,8 @@ int main()
 
         const auto grid = game.PrepareGrid();
 
+        Texture2D TexKey = LoadTexture("OOP Task 1a\Key");
+
         for (int x = 0; x < SIZE; x++)
         {
             for (int y = 0; y < SIZE; y++)
@@ -52,8 +54,8 @@ int main()
                     case HOLE:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLACK);    break;
 
                     //GATES
-                    // case 'Y': DrawTexture(gate, xPosition, yPosition, YELLOW);
-                    case 'Y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
+                    case 'Y': DrawTexture(TexKey, xPosition, yPosition, YELLOW);
+                    //case 'Y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
                     case 'V': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
                     case 'R': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
                     case 'G': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
