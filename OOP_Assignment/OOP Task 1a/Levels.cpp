@@ -192,6 +192,9 @@
 				case 'y':
 					AddKey(i, LineNumber,'y');
 					break;
+				case 'e':
+					AddKey(i, LineNumber, 'e');
+					break;
 
 				default:
 					AddWall(i, LineNumber);
