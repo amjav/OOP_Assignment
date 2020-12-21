@@ -9,6 +9,13 @@ int main()
     SetTargetFPS(60);
     //framerate (FPS - Frames per second)
     Texture2D TexKey = LoadTexture("Key.png");
+    Texture2D TexGate = LoadTexture("Gate.png");
+    Texture2D Texmouse = LoadTexture("mouse.png");
+    Texture2D Texhole = LoadTexture("hole.png");
+    Texture2D TexPath = LoadTexture("Path.png");
+    Texture2D TexCheese = LoadTexture("Cheese.png");
+    Texture2D TexGrass = LoadTexture("Grass.png");
+
 
     Game game;
     //creating a game object
@@ -48,44 +55,44 @@ int main()
 
                 switch (grid[y][x])
                 {
-                    case PATH:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, SKYBLUE);  break;
-                    case WALL:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BROWN);    break;
-                    case PLAYER: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);    break;
-                    case HOLE:   DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLACK);    break;
+                    case WALL:DrawTexture(TexGrass, xPosition, yPosition, GREEN);       break;
+                    case PATH:DrawTexture(TexPath, xPosition, yPosition, BEIGE);        break;
+                    case PLAYER:DrawTexture(Texmouse, xPosition, yPosition, GRAY);      break;
+                    case HOLE:DrawTexture(Texhole, xPosition, yPosition, WHITE);        break;
 
-                    //GATES
-                    //case 'Y': DrawTexture(TexKey, xPosition, yPosition, YELLOW);
-                    case 'Y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
-                    case 'V': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
-                    case 'R': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
-                    case 'G': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
-                    case 'O': DrawRectangle(xPosition, yPosition, cellSize, cellSize, ORANGE);  break;
-                    case 'D': DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLUE);    break;
-                    case 'L': DrawRectangle(xPosition, yPosition, cellSize, cellSize, LIME);    break;
-                    case 'M': DrawRectangle(xPosition, yPosition, cellSize, cellSize, MAGENTA); break;
+                    //GATES                
+                    case 'Y': DrawTexture(TexGate, xPosition, yPosition, YELLOW);      break;
+                    case 'R': DrawTexture(TexGate, xPosition, yPosition, PINK);        break;
+                    case 'G': DrawTexture(TexGate, xPosition, yPosition, GOLD);        break;
+                    case 'O': DrawTexture(TexGate, xPosition, yPosition, ORANGE);      break;
+                    case 'D': DrawTexture(TexGate, xPosition, yPosition, BLUE);        break;
+                    case 'L': DrawTexture(TexGate, xPosition, yPosition, LIME);        break;
+                    case 'M': DrawTexture(TexGate, xPosition, yPosition, MAGENTA);     break;
+                    case 'V': DrawTexture(TexGate, xPosition, yPosition, PURPLE);      break;
+
 
                     //KEYS
-                    case 'y': DrawTexture(TexKey, xPosition, yPosition, YELLOW); break;
-                    //case 'y': DrawRectangle(xPosition, yPosition, cellSize, cellSize, YELLOW);  break;
-                    case 'v': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PURPLE);  break;
-                    case 'r': DrawRectangle(xPosition, yPosition, cellSize, cellSize, PINK);    break;
-                    case 'g': DrawRectangle(xPosition, yPosition, cellSize, cellSize, GOLD);    break;
-                    case 'o': DrawRectangle(xPosition, yPosition, cellSize, cellSize, ORANGE);  break;
-                    case 'd': DrawRectangle(xPosition, yPosition, cellSize, cellSize, BLUE);    break;
-                    case 'l': DrawRectangle(xPosition, yPosition, cellSize, cellSize, LIME);    break;
-                    case 'm': DrawRectangle(xPosition, yPosition, cellSize, cellSize, MAGENTA); break;
+                    case 'y': DrawTexture(TexKey, xPosition, yPosition, YELLOW);        break;
+                    case 'v': DrawTexture(TexKey, xPosition, yPosition, PURPLE);        break;
+                    case 'r': DrawTexture(TexKey, xPosition, yPosition, PINK);          break;
+                    case 'g': DrawTexture(TexKey, xPosition, yPosition, GOLD);          break;
+                    case 'o': DrawTexture(TexKey, xPosition, yPosition, ORANGE);        break;
+                    case 'd': DrawTexture(TexKey, xPosition, yPosition, BLUE);          break;
+                    case 'l': DrawTexture(TexKey, xPosition, yPosition, LIME);          break;
+                    case 'm': DrawTexture(TexKey, xPosition, yPosition, MAGENTA);       break;
+
 
                     //START + END
                     case START: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);   break;
-                    case END: DrawRectangle(xPosition, yPosition, cellSize, cellSize, RED);       break;
-                    case 'e': DrawRectangle(xPosition, yPosition, cellSize, cellSize, RED);       break;
+                    case 'E': DrawTexture(TexCheese, xPosition, yPosition, RED);                  break;
+                    case 'e': DrawTexture(TexKey, xPosition, yPosition, RED);                     break;
 
 
                     default:     assert(false);  // if this hits you probably forgot to add your new tile type :)
                 }
 
                 // draw lines around each tile, remove this if you don't like it!
-                DrawRectangleLines(x * cellSize, y * cellSize, cellSize, cellSize, DARKGRAY);
+                //DrawRectangleLines(x * cellSize, y * cellSize, cellSize, cellSize, DARKGRAY);
             }
         }
 
