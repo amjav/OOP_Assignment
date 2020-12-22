@@ -1,8 +1,9 @@
 #include "Player.h"
+#include "Levels.h"
 
 Player::Player() : symbol(PLAYER), x(0), y(0), alive(true), escaped(false), dx(0), dy(0)
 {
-    PositionInMiddleOfGrid();
+   // PositionAtStart();
 }
 
 int Player::GetX()
@@ -83,9 +84,9 @@ void Player::UpdatePosition(int dx, int dy)
     y += dy;
 }
 
-void Player::PositionInMiddleOfGrid()
+void Player::PositionAtStart()
 {
-    x = SIZE / 2;
-    y = SIZE / 2;
+    x = l1.GetStartX();
+    y = l1.GetStartY();
 }
 

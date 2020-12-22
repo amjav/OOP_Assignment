@@ -20,6 +20,12 @@ class Levels
 		vector<Gate> gate;
 		vector<Path> path;
 		vector<Hole> holes;
+
+		int StartX;
+		int StartY;
+
+		int GetStartX();
+		int GetStartY();
 		
 		void CreateLevels();
 

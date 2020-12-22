@@ -11,6 +11,8 @@
         
         l1.CreateLevels();
 
+        player.UpdatePosition(l1.GetStartX(), l1.GetStartY());
+
 
         //Get level which return the coordinates for the wall of the levels.
 
@@ -18,7 +20,55 @@
 
    void Game::ProcessInput(int key)
     {
-        player.Move(key);
+       int x = player.GetX();
+       int y = player.GetY();
+
+       if ( key  == KEY_LEFT)
+       {
+           int leftY = y - 1;
+           int leftX = x;
+           if (l1.IsWallAtPosition(leftX, leftY) == false)
+           {
+               player.Move(key);
+           }
+
+       }
+
+       if(key == KEY_RIGHT){
+
+           int rightY = y + 1;
+           int rightX = x;
+
+           if (l1.IsWallAtPosition(rightX, rightY) == false)
+           {
+               player.Move(key);
+           }
+       }
+
+       if (key == KEY_UP)
+       {
+           int upY = y;
+           int upX = x - 1;
+
+           if (l1.IsWallAtPosition(upX, upY) == false)
+           {
+               player.Move(key);
+           }
+       }
+
+       if (key == KEY_DOWN){
+           int downY = y;
+           int downX = x + 1;
+
+           if (l1.IsWallAtPosition(downX, downY) == false)
+           {
+               player.Move(key);
+           }
+       }
+
+
+
+     // player.Move(key);
     }
 
     /// <summary>

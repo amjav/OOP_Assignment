@@ -8,6 +8,8 @@ int main()
     //window size for grid and title of window
     SetTargetFPS(60);
     //framerate (FPS - Frames per second)
+
+    //Tile Textures
     Texture2D TexKey = LoadTexture("Key.png");
     Texture2D TexGate = LoadTexture("Gate.png");
     Texture2D Texmouse = LoadTexture("mouse.png");
@@ -15,7 +17,6 @@ int main()
     Texture2D TexPath = LoadTexture("Path.png");
     Texture2D TexCheese = LoadTexture("Cheese.png");
     Texture2D TexGrass = LoadTexture("Grass.png");
-
 
     Game game;
     //creating a game object
