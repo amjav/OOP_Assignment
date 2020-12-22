@@ -25,19 +25,18 @@
 
        if ( key  == KEY_LEFT)
        {
-           int leftY = y - 1;
-           int leftX = x;
+           int leftX = x - 1;
+           int leftY = y;
            if (l1.IsWallAtPosition(leftX, leftY) == false)
            {
                player.Move(key);
            }
-
        }
 
        if(key == KEY_RIGHT){
 
-           int rightY = y + 1;
-           int rightX = x;
+           int rightX = x + 1;
+           int rightY = y;
 
            if (l1.IsWallAtPosition(rightX, rightY) == false)
            {
@@ -47,8 +46,8 @@
 
        if (key == KEY_UP)
        {
-           int upY = y;
-           int upX = x - 1;
+           int upY = y - 1;
+           int upX = x;
 
            if (l1.IsWallAtPosition(upX, upY) == false)
            {
@@ -57,18 +56,14 @@
        }
 
        if (key == KEY_DOWN){
-           int downY = y;
-           int downX = x + 1;
+           int downY = y + 1;
+           int downX = x;
 
            if (l1.IsWallAtPosition(downX, downY) == false)
            {
                player.Move(key);
            }
        }
-
-
-
-     // player.Move(key);
     }
 
     /// <summary>
