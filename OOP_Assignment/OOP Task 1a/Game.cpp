@@ -88,7 +88,7 @@
            int pX = player.GetX();
            int pY = player.GetY();
 
-           for (int i= 0 ; i < l1.holes.size; i++)
+           for (int i= 0 ; i < l1.holes.size(); i++)
            {
                if( l1.holes[i].GetX() != pX && l1.holes[i].GetY() != pY)
                {
