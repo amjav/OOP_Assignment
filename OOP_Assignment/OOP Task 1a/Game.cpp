@@ -1,3 +1,4 @@
+#include "raylib.h"
 #include "Game.h"
 #include "Levels.h"
 
@@ -18,12 +19,27 @@
 
     }
 
+   void Game :: CheckHole()
+   {
+      int playerX = player.GetX();
+       int playerY = player.GetY();
+
+       if (l1.IsHoleAtPosition(playerX, playerY) == true)
+           {
+               DrawText("Press X to jump in hole", 750, 650 , 18 , WHITE);    
+           }
+
+   }
+
    void Game::ProcessInput(int key)
     {
        int x = player.GetX();
        int y = player.GetY();
+       int hX;
+       int hY;
 
-       if ( key  == KEY_LEFT)
+
+       if (key == KEY_LEFT)
        {
            int leftX = x - 1;
            int leftY = y;
@@ -31,6 +47,7 @@
            {
                player.Move(key);
            }
+
        }
 
        if(key == KEY_RIGHT){
@@ -42,6 +59,7 @@
            {
                player.Move(key);
            }
+           
        }
 
        if (key == KEY_UP)
@@ -64,6 +82,33 @@
                player.Move(key);
            }
        }
+
+       if(key == X_KEY)
+       {
+           int pX = player.GetX();
+           int pY = player.GetY();
+
+           for (int i= 0 ; i < l1.holes.size; i++)
+           {
+               if( l1.holes[i].GetX() != pX && l1.holes[i].GetY() != pY)
+               {
+                   hX = l1.holes[i].GetX();
+                   hY = l1.holes[i].GetY();
+               }
+
+           }
+
+           if (l1.IsHoleAtPosition(pX,pY) == true)
+           {
+               
+              player.UpdatePosition(hX,hY);
+               
+           }
+
+       }
+
+       
+
     }
 
     /// <summary>

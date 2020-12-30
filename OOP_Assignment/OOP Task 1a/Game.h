@@ -15,7 +15,7 @@ class Game
 {
    public:
       void Setup();
-      
+      void CheckHole();
       void ProcessInput(int key);
       bool IsRunning();
       vector<vector<char>> PrepareGrid();

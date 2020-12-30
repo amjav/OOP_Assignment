@@ -18,3 +18,4 @@
 #define KEY_LEFT  263
 #define KEY_DOWN  264
 #define KEY_UP    265
+#define X_KEY     88
