@@ -18,7 +18,10 @@ class Game
       void CheckHole();
       void ProcessInput(int key);
       bool IsRunning();
+      void CheckKey();
       vector<vector<char>> PrepareGrid();
+      bool IsKeyCollected(int xPos, int yPos);
+
 
      /* vector<Wall> walls;
       vector<Key> Keys;

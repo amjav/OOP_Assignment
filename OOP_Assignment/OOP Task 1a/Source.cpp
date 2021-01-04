@@ -39,6 +39,7 @@ int main()
             if (IsKeyPressed(X_KEY))      game.ProcessInput(X_KEY);
 
             game.CheckHole();
+            game.CheckKey();
 
         }
         else
@@ -77,9 +78,21 @@ int main()
                     case 'M': DrawTexture(TexGate, xPosition, yPosition, MAGENTA);     break;
                     case 'V': DrawTexture(TexGate, xPosition, yPosition, PURPLE);      break;
 
-
+                    //what we need to do
+                    // check what key is being collected as the purple key trigger yellow removal.
                     //KEYS
-                    case 'y': DrawTexture(TexKey, xPosition, yPosition, YELLOW);        break;
+                    case 'y': {
+                        if (game.IsKeyCollected(xPosition, yPosition) == false)
+                        {
+                            DrawTexture(TexKey, xPosition, yPosition, YELLOW);
+                        }
+                        else
+                        {
+                            DrawTexture(TexPath, xPosition, yPosition, BEIGE);
+                            DrawTexture(TexKey, 650, 100, YELLOW);
+                        }}
+                    
+                    break;
                     case 'v': DrawTexture(TexKey, xPosition, yPosition, PURPLE);        break;
                     case 'r': DrawTexture(TexKey, xPosition, yPosition, PINK);          break;
                     case 'g': DrawTexture(TexKey, xPosition, yPosition, GOLD);          break;

@@ -21,6 +21,8 @@ class Levels
 		vector<Path> path;
 		vector<Hole> holes;
 
+		vector<Key> CollectedKeys;
+
 		int StartX;
 		int StartY;
 

@@ -84,6 +84,12 @@ void Player::UpdatePosition(int dx, int dy)
     y += dy;
 }
 
+void Player::HolePositionUpdate(int dx, int dy)
+{
+    x = dx;
+    y = dy;
+}
+
 void Player::PositionAtStart()
 {
     x = l1.GetStartX();

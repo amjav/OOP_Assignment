@@ -22,21 +22,73 @@
    void Game :: CheckHole()
    {
       int playerX = player.GetX();
+      int playerY = player.GetY();
+
+      if (l1.IsHoleAtPosition(playerX, playerY) == true)
+      {
+        DrawText("Press X to jump in hole", 750, 650, 18, WHITE);
+      }
+
+   }
+
+   void Game ::  CheckKey()
+   {
+       int playerX = player.GetX();
        int playerY = player.GetY();
 
-       if (l1.IsHoleAtPosition(playerX, playerY) == true)
-           {
-               DrawText("Press X to jump in hole", 750, 650 , 18 , WHITE);    
-           }
 
+       if (l1.IsKeyAtPosition(playerX, playerY) != 0 )
+       {
+           for (int i = 0; i < l1.Keys.size(); i++)
+           {
+
+               if (l1.Keys[i].IsAtPosition(playerX, playerY))
+               {
+                   l1.CollectedKeys.push_back(l1.Keys[i]);
+                   
+               }
+                
+           }
+       }
+
+   }
+
+   bool Game :: IsKeyCollected(int xPos, int yPos)
+   {
+
+       if (l1.CollectedKeys.size() != 0)
+       {
+
+           for (int i = 0; i< l1.Keys.size(); i++)
+           {
+               if (l1.Keys[i].IsAtPosition(xPos, yPos))
+               {
+                   for (int j = 0; i< l1.CollectedKeys.size(); j++)
+                   {
+                       if (l1.CollectedKeys[j].GetSymbol() == l1.Keys[i].GetSymbol())
+                       {
+                           return true;
+                       }
+                       else
+                       {
+                           return false;
+                       }
+                   }
+               }
+           }
+       }
+       else
+       {
+           return false;
+       }
    }
 
    void Game::ProcessInput(int key)
     {
        int x = player.GetX();
        int y = player.GetY();
-       int hX;
-       int hY;
+       int hX = 0;
+       int hY = 0;
 
 
        if (key == KEY_LEFT)
@@ -101,7 +153,7 @@
            if (l1.IsHoleAtPosition(pX,pY) == true)
            {
                
-              player.UpdatePosition(hX,hY);
+              player.HolePositionUpdate(hX,hY);
                
            }
 

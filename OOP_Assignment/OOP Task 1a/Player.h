@@ -17,6 +17,7 @@ class Player
         bool GetEscaped();
         bool IsAtPosition(int x, int y);
         void UpdatePosition(int dx, int dy);
+        void HolePositionUpdate(int dx, int dy);
         //make const?
 
         // mutators
