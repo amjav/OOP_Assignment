@@ -26,6 +26,18 @@ char Key::GetSymbol() const
     return symbol;
 }
 
+bool Key::CheckIsAtPosition(int x, int y)
+{
+    if(x == this->x && y == this->y)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 bool Key::IsAtPosition(int x, int y)
 {
     return this->x == x && this->y == y;

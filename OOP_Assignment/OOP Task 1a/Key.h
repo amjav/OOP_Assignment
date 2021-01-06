@@ -12,6 +12,7 @@ class Key
         int GetY();
         char GetSymbol() const;
         bool IsAtPosition(int x, int y);
+        bool CheckIsAtPosition(int x, int y);
 
     private:
         // data members

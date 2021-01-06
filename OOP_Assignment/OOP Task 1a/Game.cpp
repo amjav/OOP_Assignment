@@ -41,13 +41,15 @@
        {
            for (int i = 0; i < l1.Keys.size(); i++)
            {
-
-               if (l1.Keys[i].IsAtPosition(playerX, playerY))
+               for (int j = 0; j < l1.CollectedKeys.size(); j++)
                {
-                   l1.CollectedKeys.push_back(l1.Keys[i]);
-                   
+
+                   if (l1.Keys[i].IsAtPosition(playerX, playerY) && (l1.CollectedKeys[j].GetSymbol() != l1.Keys[i].GetSymbol()))
+                   {
+                       l1.CollectedKeys.push_back(l1.Keys[i]);
+
+                   }
                }
-                
            }
        }
 
@@ -55,32 +57,18 @@
 
    bool Game :: IsKeyCollected(int xPos, int yPos)
    {
-
-       if (l1.CollectedKeys.size() != 0)
+       for (int i = 0; i < l1.CollectedKeys.size(); i++) 
        {
-
-           for (int i = 0; i< l1.Keys.size(); i++)
-           {
-               if (l1.Keys[i].IsAtPosition(xPos, yPos))
-               {
-                   for (int j = 0; i< l1.CollectedKeys.size(); j++)
-                   {
-                       if (l1.CollectedKeys[j].GetSymbol() == l1.Keys[i].GetSymbol())
-                       {
-                           return true;
-                       }
-                       else
-                       {
-                           return false;
-                       }
-                   }
-               }
-           }
+         if(l1.CollectedKeys[i].GetX() == xPos && l1.CollectedKeys[i].GetY() == yPos)
+         {
+             return true;
+         }
+         else
+         {
+             return false;
+         }
        }
-       else
-       {
-           return false;
-       }
+           
    }
 
    void Game::ProcessInput(int key)
