@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "Game.h"
 #include "Levels.h"
+#include "Source.h"
 
 int main(){
     InitWindow(1000, 700, "OOP Assignment 1");
@@ -40,6 +41,8 @@ int main(){
             game.CheckHole();
             game.CheckKey();
 
+            
+
         }
         else
         {
@@ -57,49 +60,42 @@ int main(){
         {
             for (int y = 0; y < SIZE; y++)
             {
+
                 int xPosition = x * cellSize;
                 int yPosition = y * cellSize;
 
+                
                 switch (grid[y][x])
                 {
                     case WALL:DrawTexture(TexGrass, xPosition, yPosition, GREEN);       break;
+
                     case PATH:
                     {
-
-                        char s = game.IsKeyCollectedCoord(x, y);
-
-                       
-                        if(s != 0)
-                        {
-
                             DrawTexture(TexPath, xPosition, yPosition, BEIGE);
-                            
+                    
+                            char s = game.IsKeyCollectedCoord(x, y);
+
                             switch (s)
                             {
-                              case 'y':  DrawTexture(TexKey, 710, 500, YELLOW); 
-                              break;
-                              case 'v':  DrawTexture(TexKey, 745, 500, PURPLE); 
-                              break;
-                              case 'r': DrawTexture(TexKey, 780, 500, PINK); 
-                              break;
-                              case 'g': DrawTexture(TexKey, 815, 500, GOLD);
-                              break;
-                              case 'o':  DrawTexture(TexKey, 850, 500, ORANGE);
-                              break;
-                              case 'd':  DrawTexture(TexKey, 885, 500, BLUE);
-                              break;
-                              case 'l':  DrawTexture(TexKey, 920, 500, LIME);
-                              break;
-                              case 'm': DrawTexture(TexKey, 955, 500, MAGENTA);
-                              break;
-                              default: 
-                              break;
+                            case 'y':  DrawTexture(TexKey, 710, 500, YELLOW);
+                                break;
+                            case 'v':  DrawTexture(TexKey, 745, 500, PURPLE);
+                                break;
+                            case 'r': DrawTexture(TexKey, 780, 500, PINK);
+                                break;
+                            case 'g': DrawTexture(TexKey, 815, 500, GOLD);
+                                break;
+                            case 'o':  DrawTexture(TexKey, 850, 500, ORANGE);
+                                break;
+                            case 'd':  DrawTexture(TexKey, 885, 500, BLUE);
+                                break;
+                            case 'l':  DrawTexture(TexKey, 920, 500, LIME);
+                                break;
+                            case 'm': DrawTexture(TexKey, 955, 500, MAGENTA);
+                                break;
+                            default:
+                                break;
                             }
-                        }
-                        else
-                        {
-                            DrawTexture(TexPath, xPosition, yPosition, BEIGE);
-                        }
 
                         break; //break for the path case
                     }
@@ -118,49 +114,84 @@ int main(){
 
                     //KEYS
 
-                    //char f = game.IsKeyVecCheck(x, y);
-
-                    //if (f != 0)
-                    //{
-                    //    switch (f)
-                    //    {
-                    //    case 'y':  DrawTexture(TexKey, 710, 500, DULLYELLOW);
-                    //        break;
-                    //    case 'v':  DrawTexture(TexKey, 745, 500, DULLPURPLE);
-                    //        break;
-                    //    case 'r': DrawTexture(TexKey, 780, 500, DULLPINK);
-                    //        break;
-                    //    case 'g': DrawTexture(TexKey, 815, 500, DULLGOLD);
-                    //        break;
-                    //    case 'o':  DrawTexture(TexKey, 850, 500, DULLORANGE);
-                    //        break;
-                    //    case 'd':  DrawTexture(TexKey, 885, 500, DULLBLUE);
-                    //        break;
-                    //    case 'l': DrawTexture(TexKey, 920, 500, DULLLIME);
-                    //        break;
-                    //    case 'm': DrawTexture(TexKey, 955, 500, DULLMAGENTA);
-                    //        break;
-                    //    default:
-                    //        break;
-                    //    }
-                    //}
-
-
-
-                    case 'y':DrawTexture(TexKey, xPosition, yPosition, YELLOW); break;
-                    case 'v': DrawTexture(TexKey, xPosition, yPosition, PURPLE); break;
-                    case 'r':DrawTexture(TexKey, xPosition, yPosition, PINK);break;
-                    case 'g':DrawTexture(TexKey, xPosition, yPosition, GOLD); break;
-                    case 'o': DrawTexture(TexKey, xPosition, yPosition, ORANGE);break;
-                    case 'd':DrawTexture(TexKey, xPosition, yPosition, BLUE);break;
-                    case 'l':DrawTexture(TexKey, xPosition, yPosition, LIME); break;
-                    case 'm':DrawTexture(TexKey, xPosition, yPosition, MAGENTA); break;
+                    case 'y': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'y') {
+                            DrawTexture(TexKey, 710, 500, DULLYELLOW);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, YELLOW);
+                        break; 
+                    }
+                    case 'v': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'v') {
+                            DrawTexture(TexKey, 745, 500, DULLPURPLE);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, PURPLE); 
+                        break; 
+                    }
+                    case 'r': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'r') {
+                            DrawTexture(TexKey, 780, 500, DULLPINK);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, PINK); 
+                        break;
+                    }
+                    case 'g': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'g') {
+                            DrawTexture(TexKey, 815, 500, DULLGOLD);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, GOLD);
+                        break;
+                    }
+                    case 'o': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'g') {
+                            DrawTexture(TexKey, 850, 500, DULLORANGE);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, ORANGE); 
+                        break; 
+                    }
+                    case 'd': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'd') {
+                            DrawTexture(TexKey, 885, 500, DULLBLUE);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, BLUE);
+                        break;
+                    }
+                    case 'l': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'l') {
+                            DrawTexture(TexKey, 920, 500, DULLLIME);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, LIME); 
+                        break;
+                    }
+                    case 'm': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'm') {
+                            DrawTexture(TexKey, 955, 500, DULLMAGENTA);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, MAGENTA);
+                        break;
+                    }
                     
                     //START + END
                     case START: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);   break;
                     case 'E': DrawTexture(TexCheese, xPosition, yPosition, RED);                  break;
-                    case 'e': DrawTexture(TexKey, xPosition, yPosition, RED);                     break;
 
+                    //END KEY
+                    case 'e': {
+                        char f = game.IsKeyVecCheck(x, y);
+                        if (f == 'e') {
+                            DrawTexture(TexKey, 990, 500, DULLRED);
+                        }
+                        DrawTexture(TexKey, xPosition, yPosition, RED);                   
+                        break; 
+                    }
 
                     default:     assert(false);  // if this hits you probably forgot to add your new tile type :)
                 }

@@ -153,13 +153,13 @@
 #define MAGENTA    CLITERAL(Color){ 255, 0, 255, 255 }     // Magenta
 #define DULLORANGE CLITERAL(Color){255,204,102, 255}          //dull orange
 #define DULLYELLOW CLITERAL(Color){255,255,102, 255}          //dull yellow
-#define DULLPURPLE CLITERAL(Color){102,103,153,1}          //dull purple
-#define DULLPINK   CLITERAL(Color){255,204,204,1}          //dull pink
-#define DULLGOLD   CLITERAL(Color){204,153,102,1}          //dull gold
-#define DULLBLUE   CLITERAL(Color){102,153,204,1}          //dull blue
-#define DULLLIME   CLITERAL(Color){102,255,102,1}          //dull lime
-#define DULLMAGENTA   CLITERAL(Color){204,102,255,1}          //dull magenta
-
+#define DULLPURPLE CLITERAL(Color){102,103,153,255}          //dull purple
+#define DULLPINK   CLITERAL(Color){255,204,204,255}          //dull pink
+#define DULLGOLD   CLITERAL(Color){204,153,102,255}          //dull gold
+#define DULLBLUE   CLITERAL(Color){102,153,204,255}          //dull blue
+#define DULLLIME   CLITERAL(Color){102,255,102,255}          //dull lime
+#define DULLMAGENTA   CLITERAL(Color){204,102,255,255}          //dull magenta
+#define DULLRED   CLITERAL(Color){230, 41, 55, 1}          //dull red
 
 
 

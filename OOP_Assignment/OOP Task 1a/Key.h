@@ -18,6 +18,7 @@ class Key
         // data members
         char symbol;
         int x, y;
+        char State;
         //initialise or remove empty constructor.
 };
 

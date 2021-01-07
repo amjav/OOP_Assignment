@@ -76,12 +76,12 @@
             return l1.Keys[i].GetSymbol();
             
         }
-        else
-        {
-            return 0;
-        }
         
-     }     
+        
+     } 
+      
+        return 0;
+        
    }
 
    int Game :: GetCollectedKeysSize()
@@ -105,7 +105,6 @@
            {
                player.Move(key);
            }
-
        }
 
        if(key == KEY_RIGHT){
@@ -139,6 +138,7 @@
            {
                player.Move(key);
            }
+
        }
 
        if(key == X_KEY)

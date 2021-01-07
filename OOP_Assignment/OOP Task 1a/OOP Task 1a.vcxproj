@@ -157,6 +157,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
+    <ClInclude Include="Source.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
