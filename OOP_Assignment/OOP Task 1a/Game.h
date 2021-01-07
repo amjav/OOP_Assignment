@@ -20,14 +20,10 @@ class Game
       bool IsRunning();
       void CheckKey();
       vector<vector<char>> PrepareGrid();
-      bool IsKeyCollected(int xPos, int yPos);
+      char IsKeyVecCheck(int x, int y);
+      char IsKeyCollectedCoord(int x, int y);
+      int GetCollectedKeysSize();
 
-
-     /* vector<Wall> walls;
-      vector<Key> Keys;
-      vector<Gate> gate;
-      vector<Path> path;
-      */
 
       //to do: make player private and then create get set functiions.
 

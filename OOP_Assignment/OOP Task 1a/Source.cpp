@@ -2,8 +2,7 @@
 #include "Game.h"
 #include "Levels.h"
 
-int main()
-{
+int main(){
     InitWindow(1000, 700, "OOP Assignment 1");
     //window size for grid and title of window
     SetTargetFPS(60);
@@ -26,7 +25,7 @@ int main()
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(DARKGRAY);
+        ClearBackground(WHITE);
 
         if (game.IsRunning())
         {
@@ -63,62 +62,100 @@ int main()
 
                 switch (grid[y][x])
                 {
-                case WALL:DrawTexture(TexGrass, xPosition, yPosition, GREEN);       break;
-                case PATH:DrawTexture(TexPath, xPosition, yPosition, BEIGE);        break;
-                case PLAYER:DrawTexture(Texmouse, xPosition, yPosition, GRAY);      break;
-                case HOLE:DrawTexture(Texhole, xPosition, yPosition, WHITE);        break;
+                    case WALL:DrawTexture(TexGrass, xPosition, yPosition, GREEN);       break;
+                    case PATH:
+                    {
 
-                    //GATES                
-                case 'Y': DrawTexture(TexGate, xPosition, yPosition, YELLOW);      break;
-                case 'R': DrawTexture(TexGate, xPosition, yPosition, PINK);        break;
-                case 'G': DrawTexture(TexGate, xPosition, yPosition, GOLD);        break;
-                case 'O': DrawTexture(TexGate, xPosition, yPosition, ORANGE);      break;
-                case 'D': DrawTexture(TexGate, xPosition, yPosition, BLUE);        break;
-                case 'L': DrawTexture(TexGate, xPosition, yPosition, LIME);        break;
-                case 'M': DrawTexture(TexGate, xPosition, yPosition, MAGENTA);     break;
-                case 'V': DrawTexture(TexGate, xPosition, yPosition, PURPLE);      break;
+                        char s = game.IsKeyCollectedCoord(x, y);
 
-                    //what we need to do
-                    // check what key is being collected as the purple key trigger yellow removal.
+                       
+                        if(s != 0)
+                        {
+
+                            DrawTexture(TexPath, xPosition, yPosition, BEIGE);
+                            
+                            switch (s)
+                            {
+                              case 'y':  DrawTexture(TexKey, 710, 500, YELLOW); 
+                              break;
+                              case 'v':  DrawTexture(TexKey, 745, 500, PURPLE); 
+                              break;
+                              case 'r': DrawTexture(TexKey, 780, 500, PINK); 
+                              break;
+                              case 'g': DrawTexture(TexKey, 815, 500, GOLD);
+                              break;
+                              case 'o':  DrawTexture(TexKey, 850, 500, ORANGE);
+                              break;
+                              case 'd':  DrawTexture(TexKey, 885, 500, BLUE);
+                              break;
+                              case 'l':  DrawTexture(TexKey, 920, 500, LIME);
+                              break;
+                              case 'm': DrawTexture(TexKey, 955, 500, MAGENTA);
+                              break;
+                              default: 
+                              break;
+                            }
+                        }
+                        else
+                        {
+                            DrawTexture(TexPath, xPosition, yPosition, BEIGE);
+                        }
+
+                        break; //break for the path case
+                    }
+                    case PLAYER:DrawTexture(Texmouse, xPosition, yPosition, GRAY);      break;
+                    case HOLE:DrawTexture(Texhole, xPosition, yPosition, WHITE);        break;
+
+                        //GATES                
+                    case 'Y': DrawTexture(TexGate, xPosition, yPosition, YELLOW);      break;
+                    case 'R': DrawTexture(TexGate, xPosition, yPosition, PINK);        break;
+                    case 'G': DrawTexture(TexGate, xPosition, yPosition, GOLD);        break;
+                    case 'O': DrawTexture(TexGate, xPosition, yPosition, ORANGE);      break;
+                    case 'D': DrawTexture(TexGate, xPosition, yPosition, BLUE);        break;
+                    case 'L': DrawTexture(TexGate, xPosition, yPosition, LIME);        break;
+                    case 'M': DrawTexture(TexGate, xPosition, yPosition, MAGENTA);     break;
+                    case 'V': DrawTexture(TexGate, xPosition, yPosition, PURPLE);      break;
+
                     //KEYS
-                case 'y': {
-                    if (game.IsKeyCollected(x, y) == false)
-                    {
-                        DrawTexture(TexKey, xPosition, yPosition, YELLOW);
-                    }
-                    else
-                    {
-                        DrawTexture(TexPath, xPosition, yPosition, BEIGE);
-                        DrawTexture(TexKey, 650, 100, YELLOW);
-                    }}
 
-                        break;
+                    //char f = game.IsKeyVecCheck(x, y);
 
-                case 'v':
-                {
-                
-                    if (game.IsKeyCollected(x, y) == false)
-                    {
-                        DrawTexture(TexKey, xPosition, yPosition, PURPLE);
-                    }
-
-                    else
-                    {
-                        DrawTexture(TexPath, xPosition, yPosition, BEIGE);
-                        DrawTexture(TexKey, 650, 100, PURPLE);
-                    }
-                }
-                                
-                    break;
-                        
-                    case 'r': DrawTexture(TexKey, xPosition, yPosition, PINK);          break;
-                    case 'g': DrawTexture(TexKey, xPosition, yPosition, GOLD);          break;
-                    case 'o': DrawTexture(TexKey, xPosition, yPosition, ORANGE);        break;
-                    case 'd': DrawTexture(TexKey, xPosition, yPosition, BLUE);          break;
-                    case 'l': DrawTexture(TexKey, xPosition, yPosition, LIME);          break;
-                    case 'm': DrawTexture(TexKey, xPosition, yPosition, MAGENTA);       break;
+                    //if (f != 0)
+                    //{
+                    //    switch (f)
+                    //    {
+                    //    case 'y':  DrawTexture(TexKey, 710, 500, DULLYELLOW);
+                    //        break;
+                    //    case 'v':  DrawTexture(TexKey, 745, 500, DULLPURPLE);
+                    //        break;
+                    //    case 'r': DrawTexture(TexKey, 780, 500, DULLPINK);
+                    //        break;
+                    //    case 'g': DrawTexture(TexKey, 815, 500, DULLGOLD);
+                    //        break;
+                    //    case 'o':  DrawTexture(TexKey, 850, 500, DULLORANGE);
+                    //        break;
+                    //    case 'd':  DrawTexture(TexKey, 885, 500, DULLBLUE);
+                    //        break;
+                    //    case 'l': DrawTexture(TexKey, 920, 500, DULLLIME);
+                    //        break;
+                    //    case 'm': DrawTexture(TexKey, 955, 500, DULLMAGENTA);
+                    //        break;
+                    //    default:
+                    //        break;
+                    //    }
+                    //}
 
 
+
+                    case 'y':DrawTexture(TexKey, xPosition, yPosition, YELLOW); break;
+                    case 'v': DrawTexture(TexKey, xPosition, yPosition, PURPLE); break;
+                    case 'r':DrawTexture(TexKey, xPosition, yPosition, PINK);break;
+                    case 'g':DrawTexture(TexKey, xPosition, yPosition, GOLD); break;
+                    case 'o': DrawTexture(TexKey, xPosition, yPosition, ORANGE);break;
+                    case 'd':DrawTexture(TexKey, xPosition, yPosition, BLUE);break;
+                    case 'l':DrawTexture(TexKey, xPosition, yPosition, LIME); break;
+                    case 'm':DrawTexture(TexKey, xPosition, yPosition, MAGENTA); break;
+                    
                     //START + END
                     case START: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);   break;
                     case 'E': DrawTexture(TexCheese, xPosition, yPosition, RED);                  break;

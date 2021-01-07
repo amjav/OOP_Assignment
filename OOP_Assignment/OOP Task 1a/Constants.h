@@ -1,4 +1,5 @@
 #pragma once
+#include "raylib.h"
 
 // the size of the grid
 #define SIZE      20
@@ -19,3 +20,6 @@
 #define KEY_DOWN  264
 #define KEY_UP    265
 #define X_KEY     88
+
+//custom colours
+

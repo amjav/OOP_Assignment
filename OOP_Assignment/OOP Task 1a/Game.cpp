@@ -4,12 +4,6 @@
 
     void Game::Setup()
     {
-        //created white wall blocks however player can still run through them currently
-        /*walls.push_back(Wall(4, 7));
-        walls.push_back(Wall(9, 15));
-        walls.push_back(Wall(15, 4));*/
-
-        
         l1.CreateLevels();
 
         player.UpdatePosition(l1.GetStartX(), l1.GetStartY());
@@ -41,34 +35,58 @@
        {
            for (int i = 0; i < l1.Keys.size(); i++)
            {
-               for (int j = 0; j < l1.CollectedKeys.size(); j++)
-               {
-
-                   if (l1.Keys[i].IsAtPosition(playerX, playerY) && (l1.CollectedKeys[j].GetSymbol() != l1.Keys[i].GetSymbol()))
+              
+                   if (l1.Keys[i].IsAtPosition(playerX, playerY))
                    {
                        l1.CollectedKeys.push_back(l1.Keys[i]);
-
+                       l1.Keys.erase(l1.Keys.begin() + i);
+                       
                    }
-               }
+               
            }
        }
 
    }
 
-   bool Game :: IsKeyCollected(int xPos, int yPos)
+   char Game :: IsKeyCollectedCoord(int x, int y)
    {
-       for (int i = 0; i < l1.CollectedKeys.size(); i++) 
-       {
-         if(l1.CollectedKeys[i].GetX() == xPos && l1.CollectedKeys[i].GetY() == yPos)
-         {
-             return true;
-         }
-         else
-         {
-             return false;
-         }
-       }
-           
+     for (int i = 0; i < l1.CollectedKeys.size(); i++)
+     
+     {
+        if(x == l1.CollectedKeys[i].GetX() && y == l1.CollectedKeys[i].GetY())
+        {
+            return l1.CollectedKeys[i].GetSymbol();
+            
+        }
+        else
+        {
+            return 0;
+        }
+        
+     }
+   } 
+
+   char Game :: IsKeyVecCheck(int x, int y)
+   {
+      for (int i = 0; i < l1.Keys.size(); i++)
+     
+     {
+        if(x == l1.Keys[i].GetX() && y == l1.Keys[i].GetY())
+        {
+            return l1.Keys[i].GetSymbol();
+            
+        }
+        else
+        {
+            return 0;
+        }
+        
+     }     
+   }
+
+   int Game :: GetCollectedKeysSize()
+   {
+       return l1.CollectedKeys.size();
    }
 
    void Game::ProcessInput(int key)
@@ -195,6 +213,11 @@
                 {
                     line.push_back(l1.IsGateAtPosition(col, row));
                 }
+                else
+                {
+                    line.push_back(PATH);
+                }
+
             }
 
             assert(line.size() == SIZE);
