@@ -1,6 +1,8 @@
 #include "raylib.h"
 #include "Game.h"
 #include "Levels.h"
+#include <ctype.h>
+#include <stdio.h>
 
     void Game::Setup()
     {
@@ -23,6 +25,32 @@
         DrawText("Press X to jump in hole", 750, 650, 18, BLACK);
       }
 
+   }
+
+   bool Game::CheckGate()
+   {
+       int playerX = player.GetX();
+       int playerY = player.GetY();
+
+
+       if (l1.IsGateAtPosition(playerX, playerY) != 0)
+       {
+           
+           for (int i = 0; i < l1.gate.size(); i++) {
+               for (int j = 0; j < l1.CollectedKeys.size(); j++) {
+
+                   char s = l1.gate[i].GetSymbol();
+                   if ((s + 32) == l1.CollectedKeys[j].GetSymbol()) {
+                       l1.gate.erase(l1.gate.begin() + i);
+                       return true;
+                   }
+               }
+
+            }
+
+
+           return false;
+       }
    }
 
    void Game ::  CheckKey()
@@ -97,7 +125,7 @@
        {
            int leftX = x - 1;
            int leftY = y;
-           if (l1.IsWallAtPosition(leftX, leftY) == false && l1.IsGateAtPosition(leftX, leftY) == 0)
+           if (l1.IsWallAtPosition(leftX, leftY) == false && CheckGate() == false)
            {
                player.Move(key);
            }
@@ -108,7 +136,7 @@
            int rightX = x + 1;
            int rightY = y;
 
-           if (l1.IsWallAtPosition(rightX, rightY) == false && l1.IsGateAtPosition(rightX, rightY) == 0)
+           if (l1.IsWallAtPosition(rightX, rightY) == false && CheckGate() == false)
            {
                player.Move(key);
            }
@@ -120,7 +148,7 @@
            int upY = y - 1;
            int upX = x;
 
-           if (l1.IsWallAtPosition(upX, upY) == false && l1.IsGateAtPosition(upX, upY) == 0)
+           if (l1.IsWallAtPosition(upX, upY) == false && CheckGate() == false)
            {
                player.Move(key);
            }
@@ -130,7 +158,7 @@
            int downY = y + 1;
            int downX = x;
 
-           if (l1.IsWallAtPosition(downX, downY) == false && l1.IsGateAtPosition(downX, downY) == 0)
+           if (l1.IsWallAtPosition(downX, downY) == false && CheckGate() == false)
            {
                player.Move(key);
            }

@@ -40,6 +40,7 @@ int main(){
 
             game.CheckHole();
             game.CheckKey();
+            game.CheckGate();
 
             
 
@@ -98,14 +99,62 @@ int main(){
                     case HOLE:DrawTexture(Texhole, xPosition, yPosition, WHITE);        break;
 
                         //GATES                
-                    case 'Y': DrawTexture(TexGate, xPosition, yPosition, YELLOW);      break;
-                    case 'R': DrawTexture(TexGate, xPosition, yPosition, PINK);        break;
-                    case 'G': DrawTexture(TexGate, xPosition, yPosition, GOLD);        break;
-                    case 'O': DrawTexture(TexGate, xPosition, yPosition, ORANGE);      break;
-                    case 'D': DrawTexture(TexGate, xPosition, yPosition, BLUE);        break;
-                    case 'L': DrawTexture(TexGate, xPosition, yPosition, LIME);        break;
-                    case 'M': DrawTexture(TexGate, xPosition, yPosition, MAGENTA);     break;
-                    case 'V': DrawTexture(TexGate, xPosition, yPosition, PURPLE);      break;
+                    case 'Y': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, YELLOW);
+                            break; 
+                        }
+                    }
+                    case 'R': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, PINK);
+                            break;
+                        }
+                    }
+                    case 'G': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, GOLD);
+                            break;
+                        }
+                    }
+                    case 'O': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, ORANGE);
+                            break;
+                        }
+                    }
+                    case 'D': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, BLUE);
+                            break;
+                        }
+                    }
+                    case 'L': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, LIME);
+                            break;
+                        }
+                    }
+                    case 'M': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, MAGENTA);
+                            break;
+                        }
+                    }
+                    case 'V': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, PURPLE);
+                            break;
+                        }
+                    }
 
                     //KEYS
 
@@ -176,7 +225,13 @@ int main(){
                     
                     //START + END
                     case START: DrawRectangle(xPosition, yPosition, cellSize, cellSize, GREEN);   break;
-                    case 'E': DrawTexture(TexCheese, xPosition, yPosition, RED);                  break;
+                    case 'E': {
+                        if (game.CheckGate() == false) {
+
+                            DrawTexture(TexGate, xPosition, yPosition, RED);
+                            break;
+                        }
+                    }
 
                     //END KEY
                     case 'e': {

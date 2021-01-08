@@ -1,6 +1,3 @@
-20
-20
-
 ####################
 #E~~#######o~~~~####
 ###~##~~~##~##~#####
@@ -21,12 +18,3 @@
 #~##~####~###V~~~###
 #~G~~####e######~~E#
 ####################
-
-
-Start - S
-Exit - E ( UpperCase E is Exit Gate lowercase will be key for exit
-Wall - #
-Path - ~
-Gate - Uppercase Colour letter e.g. B
-Key - lower case Colour letter e.g. b
-Hole - H

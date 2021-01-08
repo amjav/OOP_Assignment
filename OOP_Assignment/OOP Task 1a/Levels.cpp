@@ -117,12 +117,12 @@
 		string myText;
 
 		// Read from the text file
-		ifstream MyReadFile("level1.txt");
+		ifstream MyReadFile("level3.txt");
 
-		/*if (MyReadFile.is_open())
+		if (MyReadFile.is_open())
 		{
 			cout << "This is open";
-		}*/
+		}
 
 		//lineNumber
 		int LineNumber = 0;
@@ -207,11 +207,9 @@
 				case 'e':
 					AddKey(i, LineNumber, 'e');
 					break;
-
 				default:
 					AddWall(i, LineNumber);
 					assert(false);
-
 				}
 
 			}
