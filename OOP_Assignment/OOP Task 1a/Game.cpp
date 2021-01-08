@@ -20,7 +20,7 @@
 
       if (l1.IsHoleAtPosition(playerX, playerY) == true)
       {
-        DrawText("Press X to jump in hole", 750, 650, 18, WHITE);
+        DrawText("Press X to jump in hole", 750, 650, 18, BLACK);
       }
 
    }
@@ -36,12 +36,12 @@
            for (int i = 0; i < l1.Keys.size(); i++)
            {
               
-                   if (l1.Keys[i].IsAtPosition(playerX, playerY))
-                   {
-                       l1.CollectedKeys.push_back(l1.Keys[i]);
-                       l1.Keys.erase(l1.Keys.begin() + i);
-                       
-                   }
+              if (l1.Keys[i].IsAtPosition(playerX, playerY))
+              {
+                  l1.CollectedKeys.push_back(l1.Keys[i]);
+                  l1.Keys.erase(l1.Keys.begin() + i);
+                  
+              }
                
            }
        }
@@ -58,19 +58,15 @@
             return l1.CollectedKeys[i].GetSymbol();
             
         }
-        else
-        {
-            return 0;
-        }
-        
-     }
+     }   
+     return 0;   
    } 
 
    char Game :: IsKeyVecCheck(int x, int y)
    {
       for (int i = 0; i < l1.Keys.size(); i++)
      
-     {
+      {
         if(x == l1.Keys[i].GetX() && y == l1.Keys[i].GetY())
         {
             return l1.Keys[i].GetSymbol();
@@ -78,7 +74,7 @@
         }
         
         
-     } 
+      } 
       
         return 0;
         
@@ -101,7 +97,7 @@
        {
            int leftX = x - 1;
            int leftY = y;
-           if (l1.IsWallAtPosition(leftX, leftY) == false)
+           if (l1.IsWallAtPosition(leftX, leftY) == false && l1.IsGateAtPosition(leftX, leftY) == 0)
            {
                player.Move(key);
            }
@@ -112,19 +108,19 @@
            int rightX = x + 1;
            int rightY = y;
 
-           if (l1.IsWallAtPosition(rightX, rightY) == false)
+           if (l1.IsWallAtPosition(rightX, rightY) == false && l1.IsGateAtPosition(rightX, rightY) == 0)
            {
                player.Move(key);
            }
            
        }
-
+       
        if (key == KEY_UP)
        {
            int upY = y - 1;
            int upX = x;
 
-           if (l1.IsWallAtPosition(upX, upY) == false)
+           if (l1.IsWallAtPosition(upX, upY) == false && l1.IsGateAtPosition(upX, upY) == 0)
            {
                player.Move(key);
            }
@@ -134,11 +130,10 @@
            int downY = y + 1;
            int downX = x;
 
-           if (l1.IsWallAtPosition(downX, downY) == false)
+           if (l1.IsWallAtPosition(downX, downY) == false && l1.IsGateAtPosition(downX, downY) == 0)
            {
                player.Move(key);
            }
-
        }
 
        if(key == X_KEY)

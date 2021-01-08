@@ -159,7 +159,7 @@
 #define DULLBLUE   CLITERAL(Color){102,153,204,255}          //dull blue
 #define DULLLIME   CLITERAL(Color){102,255,102,255}          //dull lime
 #define DULLMAGENTA   CLITERAL(Color){204,102,255,255}          //dull magenta
-#define DULLRED   CLITERAL(Color){230, 41, 55, 1}          //dull red
+#define DULLRED   CLITERAL(Color){181, 99, 71, 255}          //dull red
 
 
 

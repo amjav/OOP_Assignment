@@ -71,30 +71,25 @@ int main(){
 
                     case PATH:
                     {
+                            char s = NULL;
+
                             DrawTexture(TexPath, xPosition, yPosition, BEIGE);
                     
-                            char s = game.IsKeyCollectedCoord(x, y);
+                            s = game.IsKeyCollectedCoord(x, y);
 
                             switch (s)
                             {
-                            case 'y':  DrawTexture(TexKey, 710, 500, YELLOW);
-                                break;
-                            case 'v':  DrawTexture(TexKey, 745, 500, PURPLE);
-                                break;
-                            case 'r': DrawTexture(TexKey, 780, 500, PINK);
-                                break;
-                            case 'g': DrawTexture(TexKey, 815, 500, GOLD);
-                                break;
-                            case 'o':  DrawTexture(TexKey, 850, 500, ORANGE);
-                                break;
-                            case 'd':  DrawTexture(TexKey, 885, 500, BLUE);
-                                break;
-                            case 'l':  DrawTexture(TexKey, 920, 500, LIME);
-                                break;
-                            case 'm': DrawTexture(TexKey, 955, 500, MAGENTA);
-                                break;
-                            default:
-                                break;
+                                case 'y':  DrawTexture(TexKey, 710, 500, YELLOW); break;
+                                case 'v':  DrawTexture(TexKey, 745, 500, PURPLE); break;
+                                case 'r': DrawTexture(TexKey, 780, 500, PINK);    break;
+                                case 'g': DrawTexture(TexKey, 815, 500, GOLD);    break;
+                                case 'o':  DrawTexture(TexKey, 850, 500, ORANGE); break;
+                                case 'd':  DrawTexture(TexKey, 885, 500, BLUE);   break;
+                                case 'l':  DrawTexture(TexKey, 920, 500, LIME);   break;
+                                case 'm': DrawTexture(TexKey, 955, 500, MAGENTA); break;
+                                case 'e': DrawTexture(TexKey, 710, 535, RED); break;
+
+                                default: break;
                             }
 
                         break; //break for the path case
@@ -187,7 +182,7 @@ int main(){
                     case 'e': {
                         char f = game.IsKeyVecCheck(x, y);
                         if (f == 'e') {
-                            DrawTexture(TexKey, 990, 500, DULLRED);
+                            DrawTexture(TexKey, 710, 535, DULLRED);
                         }
                         DrawTexture(TexKey, xPosition, yPosition, RED);                   
                         break; 
