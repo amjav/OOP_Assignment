@@ -151,6 +151,21 @@
 #define BLACK      CLITERAL(Color){ 0, 0, 0, 255 }         // Black
 #define BLANK      CLITERAL(Color){ 0, 0, 0, 0 }           // Blank (Transparent)
 #define MAGENTA    CLITERAL(Color){ 255, 0, 255, 255 }     // Magenta
+#define DULLORANGE CLITERAL(Color){255,204,102, 255}          //dull orange
+#define DULLYELLOW CLITERAL(Color){255,255,102, 255}          //dull yellow
+#define DULLPURPLE CLITERAL(Color){102,103,153,255}          //dull purple
+#define DULLPINK   CLITERAL(Color){255,204,204,255}          //dull pink
+#define DULLGOLD   CLITERAL(Color){204,153,102,255}          //dull gold
+#define DULLBLUE   CLITERAL(Color){102,153,204,255}          //dull blue
+#define DULLLIME   CLITERAL(Color){102,255,102,255}          //dull lime
+#define DULLMAGENTA   CLITERAL(Color){204,102,255,255}          //dull magenta
+#define DULLRED   CLITERAL(Color){181, 99, 71, 255}          //dull red
+
+
+
+
+
+
 #define RAYWHITE   CLITERAL(Color){ 245, 245, 245, 255 }   // My own White (raylib logo)
 
 // Temporal hack to avoid breaking old codebases using

@@ -15,17 +15,15 @@ class Game
 {
    public:
       void Setup();
-      
-
+      void CheckHole();
       void ProcessInput(int key);
       bool IsRunning();
+      void CheckKey();
       vector<vector<char>> PrepareGrid();
+      char IsKeyVecCheck(int x, int y);
+      char IsKeyCollectedCoord(int x, int y);
+      int GetCollectedKeysSize();
 
-     /* vector<Wall> walls;
-      vector<Key> Keys;
-      vector<Gate> gate;
-      vector<Path> path;
-      */
 
       //to do: make player private and then create get set functiions.
 

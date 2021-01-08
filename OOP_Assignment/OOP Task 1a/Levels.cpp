@@ -12,6 +12,16 @@
 
 	}*/
 
+	int Levels:: GetStartX()
+	{
+		return StartX;
+	}
+
+	int Levels:: GetStartY()
+	{
+		return StartY;
+	}
+
 	bool Levels::IsHoleAtPosition(int x, int y) {
 		for (size_t i = 0; i < holes.size(); ++i)
 		{
@@ -143,6 +153,8 @@
 					break;
 				case 'S':
 					AddGate(i, LineNumber, 'S');
+					StartX = i;
+					StartY = LineNumber;
 					break;
 				case 'Y':
 					AddGate(i, LineNumber, 'Y');
@@ -191,7 +203,7 @@
 					break;
 				case 'y':
 					AddKey(i, LineNumber,'y');
-					break;
+					break; 
 				case 'e':
 					AddKey(i, LineNumber, 'e');
 					break;
@@ -205,7 +217,10 @@
 			}
 			LineNumber += 1;
 		}
+		
 	}
+
+
 	
 
 

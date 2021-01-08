@@ -1,6 +1,7 @@
 #pragma once
 
 #include "constants.h"
+#include "Levels.h"
 
 class Player
 {
@@ -15,6 +16,8 @@ class Player
         bool GetAlive();
         bool GetEscaped();
         bool IsAtPosition(int x, int y);
+        void UpdatePosition(int dx, int dy);
+        void HolePositionUpdate(int dx, int dy);
         //make const?
 
         // mutators
@@ -29,10 +32,10 @@ class Player
         bool escaped;
         int dx;
         int dy;
+        Levels l1;
 
         // supporting functions 
-        void PositionInMiddleOfGrid();
-        void UpdatePosition(int dx, int dy);
+        void PositionAtStart();
         void SetAlive();
         void SetEscaped();
 };
