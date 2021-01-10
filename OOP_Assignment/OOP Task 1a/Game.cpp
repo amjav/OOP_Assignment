@@ -27,20 +27,20 @@
 
    }
 
-   bool Game::CheckGate()
+   bool Game::CheckGate(int x, int y)
    {
-       int playerX = player.GetX();
-       int playerY = player.GetY();
+   
 
-
-       if (l1.IsGateAtPosition(playerX, playerY) != 0)
+       if (l1.IsGateAtPosition(x, y) != 0)
        {
            
            for (int i = 0; i < l1.gate.size(); i++) {
                for (int j = 0; j < l1.CollectedKeys.size(); j++) {
 
                    char s = l1.gate[i].GetSymbol();
-                   if ((s + 32) == l1.CollectedKeys[j].GetSymbol()) {
+
+                   if ((s + 32) == l1.CollectedKeys[j].GetSymbol() && l1.gate[i].GetX() == x && l1.gate[i].GetY() == y ) {
+                      
                        l1.gate.erase(l1.gate.begin() + i);
                        return true;
                    }
@@ -125,7 +125,10 @@
        {
            int leftX = x - 1;
            int leftY = y;
-           if (l1.IsWallAtPosition(leftX, leftY) == false && CheckGate() == false)
+
+           CheckGate(leftX, leftY);
+
+           if (l1.IsWallAtPosition(leftX, leftY) == false && l1.IsGateAtPosition(leftX, leftY) == 0)
            {
                player.Move(key);
            }
@@ -136,7 +139,9 @@
            int rightX = x + 1;
            int rightY = y;
 
-           if (l1.IsWallAtPosition(rightX, rightY) == false && CheckGate() == false)
+           CheckGate(rightX, rightY);
+
+           if (l1.IsWallAtPosition(rightX, rightY) == false && l1.IsGateAtPosition(rightX, rightY) == 0)
            {
                player.Move(key);
            }
@@ -148,7 +153,9 @@
            int upY = y - 1;
            int upX = x;
 
-           if (l1.IsWallAtPosition(upX, upY) == false && CheckGate() == false)
+           CheckGate(upX, upY);
+
+           if (l1.IsWallAtPosition(upX, upY) == false && l1.IsGateAtPosition(upX, upY) == 0)
            {
                player.Move(key);
            }
@@ -158,7 +165,9 @@
            int downY = y + 1;
            int downX = x;
 
-           if (l1.IsWallAtPosition(downX, downY) == false && CheckGate() == false)
+           CheckGate(downX, downY);
+
+           if (l1.IsWallAtPosition(downX, downY) == false && l1.IsGateAtPosition(downX, downY) == 0)
            {
                player.Move(key);
            }
@@ -171,7 +180,7 @@
 
            for (int i= 0 ; i < l1.holes.size(); i++)
            {
-               if( l1.holes[i].GetX() != pX && l1.holes[i].GetY() != pY)
+               if( (l1.holes[i].GetX() != pX && l1.holes[i].GetY() != pY) || (l1.holes[i].GetX() == pX && l1.holes[i].GetY() != pY) || (l1.holes[i].GetX() != pX && l1.holes[i].GetY() == pY))
                {
                    hX = l1.holes[i].GetX();
                    hY = l1.holes[i].GetY();

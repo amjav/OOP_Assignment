@@ -16,6 +16,7 @@ class Game
    public:
       void Setup();
       void CheckHole();
+      bool CheckGate(int x, int y);
       void ProcessInput(int key);
       bool IsRunning();
       void CheckKey();
@@ -23,7 +24,7 @@ class Game
       char IsKeyVecCheck(int x, int y);
       char IsKeyCollectedCoord(int x, int y);
       int GetCollectedKeysSize();
-      bool CheckGate();
+     
 
       //to do: make player private and then create get set functiions.
 
