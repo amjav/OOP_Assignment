@@ -20,6 +20,7 @@
 #define KEY_DOWN  264
 #define KEY_UP    265
 #define X_KEY     88
-
+#define KEY_YES     89
+#define KEY_NO     78
 //custom colours
 

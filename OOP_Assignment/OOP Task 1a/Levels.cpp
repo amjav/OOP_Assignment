@@ -117,7 +117,7 @@
 		string myText;
 
 		// Read from the text file
-		ifstream MyReadFile("level3.txt");
+		ifstream MyReadFile("level1.txt");
 
 		if (MyReadFile.is_open())
 		{

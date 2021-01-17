@@ -14,17 +14,18 @@
 class Game
 {
    public:
-      void Setup();
-      void CheckHole();
-      bool CheckGate(int x, int y);
-      void ProcessInput(int key);
-      bool IsRunning();
-      void CheckKey();
-      vector<vector<char>> PrepareGrid();
-      char IsKeyVecCheck(int x, int y);
-      char IsKeyCollectedCoord(int x, int y);
-      int GetCollectedKeysSize();
-     
+        void Setup();
+        void CheckHole();
+        bool CheckGate(int x, int y);
+        void ProcessInput(int key);
+        bool IsRunning();
+        void CheckKey();
+        vector<vector<char>> PrepareGrid();
+        char IsKeyVecCheck(int x, int y);
+        char IsKeyCollectedCoord(int x, int y);
+        int GetCollectedKeysSize();
+        bool CheckExitGate(int x, int y);
+
 
       //to do: make player private and then create get set functiions.
 

@@ -4,6 +4,7 @@
 #include "Source.h"
 
 int main(){
+
     InitWindow(1000, 700, "OOP Assignment 1");
     //window size for grid and title of window
     SetTargetFPS(60);
@@ -41,10 +42,10 @@ int main(){
             game.CheckHole();
             game.CheckKey();
             //game.CheckGate();
-
             
 
         }
+
         else
         {
             DrawText("TODO: Why did the game end?", 610, 10, 20, LIGHTGRAY);

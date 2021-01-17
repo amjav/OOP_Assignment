@@ -4,6 +4,9 @@
 #include <ctype.h>
 #include <stdio.h>
 
+
+
+
     void Game::Setup()
     {
         l1.CreateLevels();
@@ -41,6 +44,7 @@
 
                    if ((s + 32) == l1.CollectedKeys[j].GetSymbol() && l1.gate[i].GetX() == x && l1.gate[i].GetY() == y ) {
                       
+                       CheckExitGate(x,y);
                        l1.gate.erase(l1.gate.begin() + i);
                        return true;
                    }
@@ -48,10 +52,11 @@
 
             }
 
-
            return false;
        }
    }
+
+
 
    void Game ::  CheckKey()
    {
@@ -101,11 +106,9 @@
             
         }
         
-        
       } 
       
-        return 0;
-        
+        return 0;  
    }
 
    int Game :: GetCollectedKeysSize()
@@ -260,7 +263,28 @@
         return grid;
     }
 
-    
+    bool Game :: CheckExitGate(int x, int y)
+    {
+      // int x = player.GetX();
+       //int y = player.GetY();
+       
+       for (int i = 0; i < l1.gate.size(); i++)
+       {
+           if (x == l1.gate[i].GetX() && y == l1.gate[i].GetY() && l1.gate[i].GetSymbol() == 'E')
+           {
+              /* while (IsKeyPressed(KEY_YES) == false && IsKeyPressed(KEY_NO) == false)
+               {
+                   DrawText("You Completed the Level! Do you want to move to the next level? (Y/N)", 750, 650, 18, BLACK);
+                   
+               }*/
+               return true;
+        
+           }       
+       }  
+
+        return 0;
+    }
+
 
     bool Game::IsRunning()
     {
