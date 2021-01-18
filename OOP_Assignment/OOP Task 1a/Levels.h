@@ -25,6 +25,11 @@ class Levels
 
 		int StartX;
 		int StartY;
+		int ExitX;
+		int ExitY;
+
+		int GetExitX();
+		int GetExitY();
 
 		int GetStartX();
 		int GetStartY();

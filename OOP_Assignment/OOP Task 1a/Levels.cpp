@@ -22,6 +22,15 @@
 		return StartY;
 	}
 
+	int Levels:: GetExitX()
+	{
+		return ExitX;
+	}
+	int Levels:: GetExitY()
+	{
+		return ExitY;
+	}
+
 	bool Levels::IsHoleAtPosition(int x, int y) {
 		for (size_t i = 0; i < holes.size(); ++i)
 		{
@@ -150,6 +159,8 @@
 					break;
 				case 'E':
 					AddGate(i, LineNumber, 'E');
+					ExitX = i;
+					ExitY = LineNumber;
 					break;
 				case 'S':
 					AddGate(i, LineNumber, 'S');

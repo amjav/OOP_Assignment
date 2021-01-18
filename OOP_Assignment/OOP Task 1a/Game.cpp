@@ -32,7 +32,7 @@
 
    bool Game::CheckGate(int x, int y)
    {
-   
+       //CheckExitGate();
 
        if (l1.IsGateAtPosition(x, y) != 0)
        {
@@ -44,7 +44,7 @@
 
                    if ((s + 32) == l1.CollectedKeys[j].GetSymbol() && l1.gate[i].GetX() == x && l1.gate[i].GetY() == y ) {
                       
-                       CheckExitGate(x,y);
+                       
                        l1.gate.erase(l1.gate.begin() + i);
                        return true;
                    }
@@ -263,25 +263,17 @@
         return grid;
     }
 
-    bool Game :: CheckExitGate(int x, int y)
+    bool Game :: CheckExitGate()
     {
-      // int x = player.GetX();
-       //int y = player.GetY();
        
-       for (int i = 0; i < l1.gate.size(); i++)
+       if(l1.gate.size() == 1)
        {
-           if (x == l1.gate[i].GetX() && y == l1.gate[i].GetY() && l1.gate[i].GetSymbol() == 'E')
-           {
-              /* while (IsKeyPressed(KEY_YES) == false && IsKeyPressed(KEY_NO) == false)
-               {
-                   DrawText("You Completed the Level! Do you want to move to the next level? (Y/N)", 750, 650, 18, BLACK);
-                   
-               }*/
-               return true;
-        
-           }       
-       }  
-
+           
+           while (IsKeyUp(KEY_YES)||IsKeyUp(KEY_NO)) {
+               DrawRectangle(200, 200, 600, 300, PINK);
+           }
+           return true;
+       }
         return 0;
     }
 
@@ -290,5 +282,31 @@
     {
         // depending on your game you'll need to modify this to return false
         // maybe it's when the player runs out of moves, maybe it's when they get caught, it's up to you!
-        return true;
+
+        if(l1.gate.size() == 1)
+        {
+            BeginDrawing();
+            ClearBackground(WHITE);
+            //DrawRectangle(200, 200, 600, 300, PINK);
+            //DrawText("Press Y to move onto next level, Or press N to exit game!",300,300,18, BLACK);
+            Rectangle box = { 200,200, 600, 300 };
+            DrawTextRec(GetFontDefault(), "Press Y to move onto next level, Or press N to exit game!", box, 18, 1, true, BLACK); 
+            
+            if(IsKeyPressed(KEY_YES) == true)
+            {
+              return true;
+              //some sort of code to move onto the next level
+              EndDrawing();
+            }
+            else if(IsKeyPressed(KEY_NO) == true)
+            {
+                return false;
+                EndDrawing();
+            }
+        }
+        else{
+
+            return true;
+            
+        }
     }
