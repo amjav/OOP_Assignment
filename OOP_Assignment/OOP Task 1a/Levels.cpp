@@ -13,11 +13,6 @@
 	}*/
 
 
-	Levels::Levels(string txtfile)
-	{
-		this->txtfile = txtfile;
-	}
-
 	int Levels:: GetStartX()
 	{
 		return StartX;
@@ -123,7 +118,18 @@
 		holes.push_back(Hole(i, j));
 	}
 
-	void Levels::CreateLevels() {
+	void Levels::clearVectors()
+	{
+		walls.clear();
+		Keys.clear();
+		gate.clear();
+		path.clear();
+		holes.clear();
+
+		CollectedKeys.clear();
+	}
+
+	void Levels::CreateLevels(string level) {
 
 
 		//USE A TEXT FILE TO INTIATE LEVELS
@@ -136,7 +142,7 @@
 		
 
 		// Read from the text file
-		ifstream MyReadFile("level1.txt");
+		ifstream MyReadFile(level);
 
 		if (MyReadFile.is_open())
 		{

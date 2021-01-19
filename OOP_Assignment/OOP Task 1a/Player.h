@@ -18,6 +18,7 @@ class Player
         bool IsAtPosition(int x, int y);
         void UpdatePosition(int dx, int dy);
         void HolePositionUpdate(int dx, int dy);
+        void PositionAtStart();
         //make const?
 
         // mutators
@@ -35,7 +36,7 @@ class Player
         Levels l1;
 
         // supporting functions 
-        void PositionAtStart();
+        
         void SetAlive();
         void SetEscaped();
 };

@@ -7,12 +7,15 @@
 
 
 
+
     void Game::Setup()
     {
 
-        l1 = new Levels("dfjdkj");
-        
-        l1.CreateLevels();
+        l1.clearVectors();
+
+        l1.CreateLevels(level);
+
+        player.PositionAtStart();
 
         player.UpdatePosition(l1.GetStartX(), l1.GetStartY());
 
@@ -126,6 +129,7 @@
        int hX = 0;
        int hY = 0;
 
+       
 
        if (key == KEY_LEFT)
        {
@@ -208,7 +212,14 @@
          
          if (CheckExitGate() == true)
          {
+           if (*levelPtr == "level1.txt") {
+             *levelPtr = "level2.txt";
+           }
+           else if (*levelPtr == "level2.txt") {
+             *levelPtr = "level3.txt";
+           }
 
+           Setup();
          }
        }
 

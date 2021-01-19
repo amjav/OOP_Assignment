@@ -5,6 +5,7 @@
 #include "Path.h"
 #include "Gate.h"
 #include <vector>
+#include <string>
 
 //using namespace std;
 
@@ -31,9 +32,9 @@ class Levels
 		int GetStartX();
 		int GetStartY();
 
-		Levels(string txtfile);
 		
-		void CreateLevels();
+		
+		void CreateLevels(string level);
 
 		void AddWall(int i, int j);
 		void AddKey(int i, int j, char symbol);
@@ -46,7 +47,7 @@ class Levels
 		char IsGateAtPosition(int x, int y);
 		char IsKeyAtPosition(int x, int y);
 		bool IsHoleAtPosition(int x, int y);
-
+		void clearVectors();
 	
 
 	private:

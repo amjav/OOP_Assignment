@@ -9,6 +9,7 @@
 #include "Key.h"
 #include "Gate.h"
 #include "Path.h"
+#include <string>
 
 
 class Game
@@ -33,9 +34,8 @@ class Game
       //made variables private
     private:
       Player player;
-      Levels* l1;
-      Levels* l2;
-      Levels*  l3;
+      Levels l1;
       Rectangle rec;
-
+      string level = "level1.txt";
+      string* levelPtr = &level;
 };
