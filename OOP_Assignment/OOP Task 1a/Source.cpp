@@ -41,7 +41,7 @@ int main(){
 
             game.CheckHole();
             game.CheckKey();
-            game.CheckExitGate();
+           // game.CheckExitGate();
             //game.CheckGate();
             
 
