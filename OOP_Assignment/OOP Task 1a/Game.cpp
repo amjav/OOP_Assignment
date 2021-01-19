@@ -9,6 +9,9 @@
 
     void Game::Setup()
     {
+
+        l1 = new Levels("dfjdkj");
+        
         l1.CreateLevels();
 
         player.UpdatePosition(l1.GetStartX(), l1.GetStartY());
@@ -200,6 +203,26 @@
 
        }
 
+
+       if (key == KEY_YES) {
+         
+         if (CheckExitGate() == true)
+         {
+
+         }
+       }
+
+
+       
+       if (key == KEY_NO) {
+         
+         if (CheckExitGate() == true)
+         {
+           CloseWindow();
+         }
+
+       }
+
        
 
     }
@@ -269,14 +292,22 @@
        if(l1.gate.size() == 1)
        {
            
-           while (IsKeyUp(KEY_YES)||IsKeyUp(KEY_NO)) {
-               DrawRectangle(200, 200, 600, 300, PINK);
-           }
+            drawEndLevel();
+         
            return true;
        }
         return 0;
     }
 
+
+    void Game::drawEndLevel()
+    {
+      if (l1.gate.size() == 1) {
+        
+         rec = { 750,50, 200, 200 };
+        DrawTextRec(GetFontDefault(),"Congrats! you have collected all the keys and opened all the gates! Please press Y to continue to next level, or N to exit game!",rec , 18, 1,true, RED);
+      }
+    }
 
     bool Game::IsRunning()
     {
@@ -285,24 +316,9 @@
 
         if(l1.gate.size() == 1)
         {
-            BeginDrawing();
-            ClearBackground(WHITE);
-            //DrawRectangle(200, 200, 600, 300, PINK);
-            //DrawText("Press Y to move onto next level, Or press N to exit game!",300,300,18, BLACK);
-            Rectangle box = { 200,200, 600, 300 };
-            DrawTextRec(GetFontDefault(), "Press Y to move onto next level, Or press N to exit game!", box, 18, 1, true, BLACK); 
             
-            if(IsKeyPressed(KEY_YES) == true)
-            {
-              return true;
-              //some sort of code to move onto the next level
-              EndDrawing();
-            }
-            else if(IsKeyPressed(KEY_NO) == true)
-            {
-                return false;
-                EndDrawing();
-            }
+            return false;
+            
         }
         else{
 

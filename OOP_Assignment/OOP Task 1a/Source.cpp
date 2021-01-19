@@ -21,6 +21,9 @@ int main(){
 
     Game game;
     //creating a game object
+    
+    
+
     game.Setup();
     //setting up game object
 
@@ -38,9 +41,11 @@ int main(){
             if (IsKeyPressed(KEY_UP))     game.ProcessInput(KEY_UP);
             if (IsKeyPressed(KEY_DOWN))   game.ProcessInput(KEY_DOWN);
             if (IsKeyPressed(X_KEY))      game.ProcessInput(X_KEY);
+            
 
             game.CheckHole();
             game.CheckKey();
+            
             //game.CheckGate();
             
 
@@ -48,7 +53,11 @@ int main(){
 
         else
         {
-            DrawText("TODO: Why did the game end?", 610, 10, 20, LIGHTGRAY);
+            //DrawText("TODO: Why did the game end?", 610, 10, 20, LIGHTGRAY);
+            if (IsKeyPressed(KEY_YES))    game.ProcessInput(KEY_YES);
+            if (IsKeyPressed(KEY_NO))     game.ProcessInput(KEY_NO);
+            game.drawEndLevel();
+            
         }
 
         // this is 35, unless you change the window size (don't change the window size)

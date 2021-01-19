@@ -25,6 +25,7 @@ class Game
         char IsKeyCollectedCoord(int x, int y);
         int GetCollectedKeysSize();
         bool CheckExitGate();
+        void drawEndLevel();
 
 
       //to do: make player private and then create get set functiions.
@@ -32,6 +33,9 @@ class Game
       //made variables private
     private:
       Player player;
-      Levels l1;
+      Levels* l1;
+      Levels* l2;
+      Levels*  l3;
+      Rectangle rec;
 
 };

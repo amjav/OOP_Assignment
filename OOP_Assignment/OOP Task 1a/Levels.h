@@ -5,15 +5,12 @@
 #include "Path.h"
 #include "Gate.h"
 #include <vector>
+
 //using namespace std;
 
 class Levels
 {
 	public:
-
-		vector<Wall> Level1;
-		vector<Wall> Level2;
-		vector<Wall> Level3;
 
 		vector<Wall> walls;
 		vector<Key> Keys;
@@ -33,6 +30,8 @@ class Levels
 
 		int GetStartX();
 		int GetStartY();
+
+		Levels(string txtfile);
 		
 		void CreateLevels();
 
@@ -53,6 +52,8 @@ class Levels
 	private:
 		//void GetLevel();
 		//int SetLevel();
+
+		string txtfile;
 
 };
 

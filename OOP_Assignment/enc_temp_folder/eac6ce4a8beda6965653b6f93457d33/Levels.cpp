@@ -12,12 +12,6 @@
 
 	}*/
 
-
-	Levels::Levels(string txtfile)
-	{
-		this->txtfile = txtfile;
-	}
-
 	int Levels:: GetStartX()
 	{
 		return StartX;
