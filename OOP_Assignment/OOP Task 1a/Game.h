@@ -25,7 +25,7 @@ class Game
         char IsKeyCollectedCoord(int x, int y);
         int GetCollectedKeysSize();
         bool CheckExitGate();
-
+        void drawEndLevelScreen();
 
       //to do: make player private and then create get set functiions.
 
