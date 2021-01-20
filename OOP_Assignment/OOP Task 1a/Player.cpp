@@ -4,7 +4,7 @@
 
 Player::Player() : symbol(PLAYER), x(0), y(0), dx(0), dy(0), dxx(0), dyy(0)
 {
-   // PositionAtStart();
+   
 }
 
 int Player::GetX() const
@@ -22,17 +22,18 @@ char Player::GetSymbol() const
     return symbol;
 }
 
-
+//used to determine the position of the player
 bool Player::IsAtPosition(int x, int y)
 {
     return this->x == x && this->y == y;
 }
 
 void Player::Move(int key)
-{
+{  
+  //used to determine direction of the player depending on the different key inputs.
     switch (key)
     {
-        //maybe add in continuous move keys
+        
     case KEY_LEFT:
         dx = -0.5;
         dy = 0;
@@ -49,18 +50,18 @@ void Player::Move(int key)
         dx = 0;
         dy = +0.5;
         break;
-    default:
-        // not a key we care about, so do nothing
+    default:  
         break;
     }
 
-    // update mouse coordinates if move is possible
+    // used to update mouse coordinates if move is possible
     if (((x + dx) >= 1) && ((x + dx) <= SIZE) && ((y + dy) >= 1) && ((y + dy) <= SIZE))
     {
         UpdatePosition(dx, dy);
     }
 }
 
+//used to update the position of the player after each move
 void Player::UpdatePosition(float dx, float dy)
 {
    
@@ -80,12 +81,14 @@ void Player::UpdatePosition(float dx, float dy)
  
 }
 
+//used to determine the position of the hole
 void Player::HolePositionUpdate(int dx, int dy)
 {
     x = dx;
     y = dy;
 }
 
+//used to position the player at the start square at the begining of each level
 void Player::PositionAtStart()
 {
     x = l1.GetStartX();

@@ -1,5 +1,6 @@
 #include "State.h"
 
+//Class wall, hole, path, gate inherits from this class because they all share the same function
 
 State::State(int x, int y)
 {

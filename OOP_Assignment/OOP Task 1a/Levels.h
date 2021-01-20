@@ -33,17 +33,17 @@ class Levels
 		
 		void CreateLevels(string level);
 
-		void AddWall(int i, int j);
-		void AddKey(int i, int j, char symbol);
-		void AddGate(int i, int j, char symbol);
-		void AddPath(int i, int j);
-		void AddHole(int i, int j);
+		void AddWall(int &i, int &j);
+		void AddKey(int &i, int &j, char symbol);
+		void AddGate(int &i, int &j, char symbol);
+		void AddPath(int &i, int &j);
+		void AddHole(int &i, int &j);
 
-		bool IsWallAtPosition(int x, int y);
-		bool IsPathAtPosition(int x, int y);
-		char IsGateAtPosition(int x, int y);
-		char IsKeyAtPosition(int x, int y);
-		bool IsHoleAtPosition(int x, int y);
+		bool IsWallAtPosition(int &x, int &y);
+		bool IsPathAtPosition(int &x, int &y);
+		char IsGateAtPosition(int &x, int &y);
+		char IsKeyAtPosition(int &x, int &y);
+		bool IsHoleAtPosition(int &x, int &y);
 		void clearVectors();
 	
 

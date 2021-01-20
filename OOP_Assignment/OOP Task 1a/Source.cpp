@@ -1,6 +1,5 @@
 #include "raylib.h"
 #include "Game.h"
-#include "Levels.h"
 #include "Source.h"
 
 int main(){
@@ -25,20 +24,18 @@ int main(){
 
     Game game;
     //creating a game object
-    
-    
-    int finishtime;
 
     game.Setup();
     //setting up game object
 
-    
-
+  
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(WHITE);
 
+
+        //Used to run different keypress functions depending game state
         if (game.IsRunning())
         {
             
@@ -49,37 +46,33 @@ int main(){
             if (IsKeyDown(KEY_DOWN))   game.ProcessInput(KEY_DOWN);
             if (IsKeyPressed(X_KEY))   game.ProcessInput(X_KEY);
             
-
+            //Checks if hole is at player position to determind whether to give to option to press the X key or not
             game.CheckHole();
+            //Checks if key is at the player position so that any keys collected can be moved 
+            //to the collected keys vector and displayed on the right side of the screen
             game.CheckKey();
             
-            //game.CheckGate();
-            
-            
-
-
         }
 
         else
         {
-            
-
-            //DrawText("TODO: Why did the game end?", 610, 10, 20, LIGHTGRAY);
+            // Key pressed set up for end screen of each level and end screen of the game so the player can decided what to do   
             if (IsKeyPressed(KEY_YES))    game.ProcessInput(KEY_YES);
-            if (IsKeyPressed(KEY_NO))     game.ProcessInput(KEY_NO);
-
-            
+            if (IsKeyPressed(KEY_NO))     game.ProcessInput(KEY_NO);          
         }
 
-        // this is 35, unless you change the window size (don't change the window size)
+        
         const int cellSize = (int)((float)GetScreenHeight() / (float)(SIZE));
-        //Allows grid to expand to the size of the window
 
 
 
+        //Checks if all gates have been collected (except the start) so that the level can end
         if (game.CheckExitGate() == 0)
         {
-          
+
+            DrawText("Key Collection:", 735, 450, 30, BLUE);
+
+          // Set up of timer so that is can be formatted and displayed while each level is running
           int timer = game.GetTimer().GetDuration();
          
           string t = to_string(timer);
@@ -87,7 +80,7 @@ int main(){
           string a = "00:" + t;
 
           const char* tnum = a.c_str();
-
+          
           if (timer < 60)
           {
             if (timer < 10)
@@ -125,7 +118,7 @@ int main(){
             DrawText(time, 815, 50, 40, BLUE);
 
           }
-
+          //grid is prepared so that the textures can be applied
           const auto grid = game.PrepareGrid();
 
 
@@ -137,7 +130,7 @@ int main(){
               int xPosition = x * cellSize;
               int yPosition = y * cellSize;
 
-
+              // switch case applies the textures to the correct squares depending on the symbol found in the level text file
               switch (grid[y][x])
               {
               case WALL:DrawTexture(TexGrass, xPosition, yPosition, GREEN);       break;
@@ -149,18 +142,18 @@ int main(){
                 DrawTexture(TexPath, xPosition, yPosition, BEIGE);
 
                 s = game.IsKeyCollectedCoord(x, y);
-
+               // this is so that the collected keys are displayed on the right side of the screen
                 switch (s)
                 {
-                case 'y':  DrawTexture(TexKey, 710, 500, YELLOW); break;
-                case 'v':  DrawTexture(TexKey, 745, 500, PURPLE); break;
-                case 'r': DrawTexture(TexKey, 780, 500, PINK);    break;
-                case 'g': DrawTexture(TexKey, 815, 500, GOLD);    break;
-                case 'o':  DrawTexture(TexKey, 850, 500, ORANGE); break;
-                case 'd':  DrawTexture(TexKey, 885, 500, BLUE);   break;
-                case 'l':  DrawTexture(TexKey, 920, 500, LIME);   break;
-                case 'm': DrawTexture(TexKey, 955, 500, MAGENTA); break;
-                case 'e': DrawTexture(TexKey, 710, 535, RED); break;
+                case 'y':  DrawTexture(TexKey, 797.5, 500, YELLOW); break;
+                case 'v':  DrawTexture(TexKey, 832.5, 500, PURPLE); break;
+                case 'r': DrawTexture(TexKey, 867.5, 500, PINK);    break;
+                case 'g': DrawTexture(TexKey, 797.5, 535, GOLD);    break;
+                case 'o':  DrawTexture(TexKey, 832.5, 535, ORANGE); break;
+                case 'd':  DrawTexture(TexKey, 867.5, 535, BLUE);   break;
+                case 'l':  DrawTexture(TexKey, 797.5, 570, LIME);   break;
+                case 'm': DrawTexture(TexKey, 832.5, 570, MAGENTA); break;
+                case 'e': DrawTexture(TexKey, 867.5, 570, RED); break;
 
                 default: break;
                 }
@@ -179,13 +172,11 @@ int main(){
               }
               case 'R': {
 
-
                 DrawTexture(TexGate, xPosition, yPosition, PINK);
                 break;
 
               }
               case 'G': {
-
 
                 DrawTexture(TexGate, xPosition, yPosition, GOLD);
                 break;
@@ -207,13 +198,11 @@ int main(){
               }
               case 'L': {
 
-
                 DrawTexture(TexGate, xPosition, yPosition, LIME);
                 break;
 
               }
               case 'M': {
-
 
                 DrawTexture(TexGate, xPosition, yPosition, MAGENTA);
                 break;
@@ -221,18 +210,18 @@ int main(){
               }
               case 'V': {
 
-
                 DrawTexture(TexGate, xPosition, yPosition, PURPLE);
                 break;
 
               }
 
-                      //KEYS
+                //KEYS
 
               case 'y': {
+                // Checks the keys so that they appear gray when not collected
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'y') {
-                  DrawTexture(TexKey, 710, 500, DULLYELLOW);
+                  DrawTexture(TexKey, 797.5, 500, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, YELLOW);
                 break;
@@ -240,7 +229,7 @@ int main(){
               case 'v': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'v') {
-                  DrawTexture(TexKey, 745, 500, DULLPURPLE);
+                  DrawTexture(TexKey, 832.5, 500, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, PURPLE);
                 break;
@@ -248,7 +237,7 @@ int main(){
               case 'r': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'r') {
-                  DrawTexture(TexKey, 780, 500, DULLPINK);
+                  DrawTexture(TexKey, 867.5, 500, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, PINK);
                 break;
@@ -256,7 +245,7 @@ int main(){
               case 'g': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'g') {
-                  DrawTexture(TexKey, 815, 500, DULLGOLD);
+                  DrawTexture(TexKey, 797.5, 535, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, GOLD);
                 break;
@@ -264,7 +253,7 @@ int main(){
               case 'o': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'g') {
-                  DrawTexture(TexKey, 850, 500, DULLORANGE);
+                  DrawTexture(TexKey, 832.5, 535, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, ORANGE);
                 break;
@@ -272,7 +261,7 @@ int main(){
               case 'd': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'd') {
-                  DrawTexture(TexKey, 885, 500, DULLBLUE);
+                  DrawTexture(TexKey, 867.5, 535, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, BLUE);
                 break;
@@ -280,7 +269,7 @@ int main(){
               case 'l': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'l') {
-                  DrawTexture(TexKey, 920, 500, DULLLIME);
+                  DrawTexture(TexKey, 797.5, 570, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, LIME);
                 break;
@@ -288,7 +277,7 @@ int main(){
               case 'm': {
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'm') {
-                  DrawTexture(TexKey, 955, 500, DULLMAGENTA);
+                  DrawTexture(TexKey, 832.5, 570, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, MAGENTA);
                 break;
@@ -303,11 +292,12 @@ int main(){
 
               }
 
-                      //END KEY
+                  //END KEY
               case 'e': {
+              //
                 char f = game.IsKeyVecCheck(x, y);
                 if (f == 'e') {
-                  DrawTexture(TexKey, 710, 535, DULLRED);
+                  DrawTexture(TexKey, 867.5, 570, GRAY);
                 }
                 DrawTexture(TexKey, xPosition, yPosition, RED);
                 break;
@@ -315,21 +305,18 @@ int main(){
 
               default:     assert(false);  // if this hits you probably forgot to add your new tile type :)
               }
-
-              // draw lines around each tile, remove this if you don't like it!
-              //DrawRectangleLines(x * cellSize, y * cellSize, cellSize, cellSize, DARKGRAY);
             }
           }
         }
         else
-        {
-          //Rectangle r = { (screenwidth/2)-250,(screenheight/2) - 100,screenwidth - 500,screenheight - 500 };
-          
+        { 
 
+          // creates end level screen or end game screen so player can decide whether to continue to next level
+          // Or can decide to retry in end game after level 3 has been played
           const char* endtxt1 = "Congrats! you have collected all the keys and opened all the gates!";
           const char* endtxt2 = "Press[Y] to continue to next level or [N] to exit game!";
           const char* endtxt3 = "Press[Y] to play again or [N] to exit game!";
-          //DrawTextRec(GetFontDefault(),endtxt,r,18,2,true,RED);
+      
           int m1 = MeasureText(endtxt1, 18);
           int m2 = MeasureText(endtxt2, 18);
           int m3 = MeasureText(endtxt3, 18);
@@ -353,7 +340,4 @@ int main(){
 
     CloseWindow();
     return 0;
-
-
-
 }

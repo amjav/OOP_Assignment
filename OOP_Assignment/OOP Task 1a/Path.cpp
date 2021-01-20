@@ -1,7 +1,7 @@
 #include "Path.h"
 #include "Constants.h"
 
-//tile types may inlcude inheritence
+
 
 Path::Path(int x, int y)
 {

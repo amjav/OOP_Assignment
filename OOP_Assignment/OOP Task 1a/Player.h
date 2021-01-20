@@ -18,8 +18,7 @@ class Player
         void HolePositionUpdate(int dx, int dy);
         void PositionAtStart();
         
-      
-
+ 
         // mutators
         void Move(int key);
         

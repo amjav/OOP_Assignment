@@ -20,23 +20,20 @@ class Game
    public:
         void Setup();
         void CheckHole();
-        bool CheckGate(int x, int y);
+        bool CheckGate(int &x, int &y);
         void ProcessInput(int key);
         bool IsRunning();
         void CheckKey();
         vector<vector<char>> PrepareGrid();
-        char IsKeyVecCheck(int x, int y);
-        char IsKeyCollectedCoord(int x, int y);
+        char IsKeyVecCheck(int &x, int &y);
+        char IsKeyCollectedCoord(int &x, int &y);
         int GetCollectedKeysSize() const;
         bool CheckExitGate();
         bool CheckEndGame();
-        void Saveleveltime(int time);
+        void Saveleveltime(int &time);
         Timer GetTimer() const;
 
 
-      //to do: make player private and then create get set functiions.
-
-      //made variables private
     private:
       Player player;
       Levels l1;
