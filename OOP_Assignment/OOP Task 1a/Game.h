@@ -10,6 +10,9 @@
 #include "Gate.h"
 #include "Path.h"
 #include <string>
+#include "Timer.h"
+#include "iostream"
+#include "fstream"
 
 
 class Game
@@ -26,7 +29,9 @@ class Game
         char IsKeyCollectedCoord(int x, int y);
         int GetCollectedKeysSize();
         bool CheckExitGate();
-        void drawEndLevel();
+        bool CheckEndGame();
+        void Saveleveltime(int time);
+        Timer GetTimer();
 
 
       //to do: make player private and then create get set functiions.
@@ -38,4 +43,9 @@ class Game
       Rectangle rec;
       string level = "level1.txt";
       string* levelPtr = &level;
+      Timer T;
+      int FinishTime;
+      char* score;
+      ofstream MyFile;
+      
 };

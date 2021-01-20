@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Levels.h"
+#include "math.h"
 
 Player::Player() : symbol(PLAYER), x(0), y(0), alive(true), escaped(false), dx(0), dy(0)
 {
@@ -51,20 +52,20 @@ void Player::Move(int key)
     {
         //maybe add in continuous move keys
     case KEY_LEFT:
-        dx = -1;
+        dx = -0.5;
         dy = 0;
         break;
     case KEY_RIGHT:
-        dx = +1;
+        dx = +0.5;
         dy = 0;
         break;
     case KEY_UP:
         dx = 0;
-        dy = -1;
+        dy = -0.5;
         break;
     case KEY_DOWN:
         dx = 0;
-        dy = +1;
+        dy = +0.5;
         break;
     default:
         // not a key we care about, so do nothing
@@ -78,10 +79,23 @@ void Player::Move(int key)
     }
 }
 
-void Player::UpdatePosition(int dx, int dy)
+void Player::UpdatePosition(float dx, float dy)
 {
-    x += dx;
-    y += dy;
+   
+    dxx += dx;
+    dyy += dy;
+    if (floor(dxx) == dxx)
+    {
+      x += dxx;
+      dxx = 0;
+      
+    }
+    if((floor(dyy) == dyy))
+    {
+      y += dyy;
+      dyy = 0;
+    }
+ 
 }
 
 void Player::HolePositionUpdate(int dx, int dy)
@@ -94,5 +108,7 @@ void Player::PositionAtStart()
 {
     x = l1.GetStartX();
     y = l1.GetStartY();
+    dxx = 0;
+    dyy = 0;
 }
 

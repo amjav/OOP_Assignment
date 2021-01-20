@@ -3,13 +3,17 @@
 #include "Levels.h"
 #include <ctype.h>
 #include <stdio.h>
-
+#include <iostream>
+#include <fstream>
 
 
 
 
     void Game::Setup()
     {
+        FinishTime = NULL;
+
+        T.Start();
 
         l1.clearVectors();
 
@@ -19,7 +23,7 @@
 
         player.UpdatePosition(l1.GetStartX(), l1.GetStartY());
 
-
+        
         //Get level which return the coordinates for the wall of the levels.
 
     }
@@ -50,7 +54,7 @@
 
                    if ((s + 32) == l1.CollectedKeys[j].GetSymbol() && l1.gate[i].GetX() == x && l1.gate[i].GetY() == y ) {
                       
-                       
+                       //void PlaySound(Sound sound); 
                        l1.gate.erase(l1.gate.begin() + i);
                        return true;
                    }
@@ -77,6 +81,7 @@
               
               if (l1.Keys[i].IsAtPosition(playerX, playerY))
               {
+                  //void PlaySound(Sound sound); 
                   l1.CollectedKeys.push_back(l1.Keys[i]);
                   l1.Keys.erase(l1.Keys.begin() + i);
                   
@@ -128,11 +133,12 @@
        int y = player.GetY();
        int hX = 0;
        int hY = 0;
-
        
+       //void PlaySound(Sound sound); 
+       
+         if (key == KEY_LEFT)
+         {
 
-       if (key == KEY_LEFT)
-       {
            int leftX = x - 1;
            int leftY = y;
 
@@ -140,11 +146,11 @@
 
            if (l1.IsWallAtPosition(leftX, leftY) == false && l1.IsGateAtPosition(leftX, leftY) == 0)
            {
-               player.Move(key);
+             player.Move(key);
            }
-       }
+         }
 
-       if(key == KEY_RIGHT){
+         if (key == KEY_RIGHT) {
 
            int rightX = x + 1;
            int rightY = y;
@@ -153,13 +159,13 @@
 
            if (l1.IsWallAtPosition(rightX, rightY) == false && l1.IsGateAtPosition(rightX, rightY) == 0)
            {
-               player.Move(key);
+             player.Move(key);
            }
-           
-       }
-       
-       if (key == KEY_UP)
-       {
+
+         }
+
+         if (key == KEY_UP)
+         {
            int upY = y - 1;
            int upX = x;
 
@@ -167,11 +173,11 @@
 
            if (l1.IsWallAtPosition(upX, upY) == false && l1.IsGateAtPosition(upX, upY) == 0)
            {
-               player.Move(key);
+             player.Move(key);
            }
-       }
+         }
 
-       if (key == KEY_DOWN){
+         if (key == KEY_DOWN) {
            int downY = y + 1;
            int downX = x;
 
@@ -179,62 +185,66 @@
 
            if (l1.IsWallAtPosition(downX, downY) == false && l1.IsGateAtPosition(downX, downY) == 0)
            {
-               player.Move(key);
+             player.Move(key);
            }
-       }
+         }
 
-       if(key == X_KEY)
-       {
+         if (key == X_KEY)
+         {
            int pX = player.GetX();
            int pY = player.GetY();
 
-           for (int i= 0 ; i < l1.holes.size(); i++)
+           for (int i = 0; i < l1.holes.size(); i++)
            {
-               if( (l1.holes[i].GetX() != pX && l1.holes[i].GetY() != pY) || (l1.holes[i].GetX() == pX && l1.holes[i].GetY() != pY) || (l1.holes[i].GetX() != pX && l1.holes[i].GetY() == pY))
-               {
-                   hX = l1.holes[i].GetX();
-                   hY = l1.holes[i].GetY();
-               }
+             if ((l1.holes[i].GetX() != pX && l1.holes[i].GetY() != pY) || (l1.holes[i].GetX() == pX && l1.holes[i].GetY() != pY) || (l1.holes[i].GetX() != pX && l1.holes[i].GetY() == pY))
+             {
+               hX = l1.holes[i].GetX();
+               hY = l1.holes[i].GetY();
+             }
 
            }
 
-           if (l1.IsHoleAtPosition(pX,pY) == true)
+           if (l1.IsHoleAtPosition(pX, pY) == true)
            {
-               
-              player.HolePositionUpdate(hX,hY);
-               
+
+             player.HolePositionUpdate(hX, hY);
+
            }
 
-       }
-
-
-       if (key == KEY_YES) {
-         
-         if (CheckExitGate() == true)
-         {
-           if (*levelPtr == "level1.txt") {
-             *levelPtr = "level2.txt";
-           }
-           else if (*levelPtr == "level2.txt") {
-             *levelPtr = "level3.txt";
-           }
-
-           Setup();
-         }
-       }
-
-
-       
-       if (key == KEY_NO) {
-         
-         if (CheckExitGate() == true)
-         {
-           CloseWindow();
          }
 
-       }
 
-       
+         if (key == KEY_YES) {
+
+           if (CheckExitGate() == true)
+           {
+             if (*levelPtr == "level1.txt") {
+               *levelPtr = "level2.txt";
+             }
+             else if (*levelPtr == "level2.txt") {
+               *levelPtr = "level3.txt";
+             }
+             else if (*levelPtr == "level3.txt")
+             {
+               *levelPtr = "level1.txt";
+             }
+
+             Setup();
+             
+             
+           }
+         }
+
+
+
+         if (key == KEY_NO) {
+
+           if (CheckExitGate() == true)
+           {
+             CloseWindow();
+           }
+
+         }
 
     }
 
@@ -303,21 +313,57 @@
        if(l1.gate.size() == 1)
        {
            
-            drawEndLevel();
+            
          
            return true;
        }
         return 0;
     }
 
-
-    void Game::drawEndLevel()
+    bool Game::CheckEndGame()
     {
-      if (l1.gate.size() == 1) {
-        
-         rec = { 750,50, 200, 200 };
-        DrawTextRec(GetFontDefault(),"Congrats! you have collected all the keys and opened all the gates! Please press Y to continue to next level, or N to exit game!",rec , 18, 1,true, RED);
+      if (*levelPtr == "level3.txt")
+      {
+        return true;
       }
+      else
+      {
+        return false;
+      }
+    }
+
+    void Game::Saveleveltime(int time)
+    {
+        string t = to_string(time);
+
+        MyFile.open("score.txt");
+
+           if (*levelPtr == "level1.txt") {
+           
+             string l = "LEVEL 1: Time - " + t;
+             MyFile << l;
+                
+           }
+           else if (*levelPtr == "level2.txt") 
+           {
+             string l = "LEVEL 2: Time - " + t;
+
+             MyFile << l;
+           }
+           else if (*levelPtr == "level3.txt")
+           {
+             string l = "LEVEL 3: Time - " + t;
+
+             MyFile << l;
+             
+           }  
+           
+           MyFile.close();
+    }
+
+    Timer Game::GetTimer()
+    {
+      return T;
     }
 
     bool Game::IsRunning()
@@ -328,12 +374,18 @@
         if(l1.gate.size() == 1)
         {
             
+              if (FinishTime == NULL)
+              {
+                FinishTime = T.GetDuration();
+                Saveleveltime(FinishTime);
+              }
             return false;
             
         }
         else{
 
-            return true;
             
+            return true;
+
         }
     }

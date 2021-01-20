@@ -146,6 +146,7 @@
     <ClCompile Include="RandomNumberGenerator.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="Source.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

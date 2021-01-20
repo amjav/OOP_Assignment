@@ -16,7 +16,7 @@ class Player
         bool GetAlive();
         bool GetEscaped();
         bool IsAtPosition(int x, int y);
-        void UpdatePosition(int dx, int dy);
+        void UpdatePosition(float dx, float dy);
         void HolePositionUpdate(int dx, int dy);
         void PositionAtStart();
         //make const?
@@ -31,8 +31,10 @@ class Player
         int  x, y;
         bool alive;
         bool escaped;
-        int dx;
-        int dy;
+        float dx;
+        float dy;
+        float dxx;
+        float dyy;
         Levels l1;
 
         // supporting functions 
