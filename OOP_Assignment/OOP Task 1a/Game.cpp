@@ -53,8 +53,10 @@
                    char s = l1.gate[i].GetSymbol();
 
                    if ((s + 32) == l1.CollectedKeys[j].GetSymbol() && l1.gate[i].GetX() == x && l1.gate[i].GetY() == y ) {
-                      
-                       //void PlaySound(Sound sound); 
+
+                       SetSoundVolume(openGate, 1);
+                       PlaySound(openGate);
+
                        l1.gate.erase(l1.gate.begin() + i);
                        return true;
                    }
@@ -81,10 +83,11 @@
               
               if (l1.Keys[i].IsAtPosition(playerX, playerY))
               {
-                  //void PlaySound(Sound sound); 
+                  
                   l1.CollectedKeys.push_back(l1.Keys[i]);
                   l1.Keys.erase(l1.Keys.begin() + i);
-                  
+                  SetSoundVolume(collectingKey, 0.6);
+                  PlaySound(collectingKey);                 
               }
                
            }
@@ -146,6 +149,7 @@
            if (l1.IsWallAtPosition(leftX, leftY) == false && l1.IsGateAtPosition(leftX, leftY) == 0)
            {
              player.Move(key);
+             SetSoundVolume(bounce, 0.2);
              PlaySound(bounce);
            }
          }
@@ -160,6 +164,7 @@
            if (l1.IsWallAtPosition(rightX, rightY) == false && l1.IsGateAtPosition(rightX, rightY) == 0)
            {
              player.Move(key);
+             SetSoundVolume(bounce, 0.2);
              PlaySound(bounce);
 
            }
@@ -176,6 +181,7 @@
            if (l1.IsWallAtPosition(upX, upY) == false && l1.IsGateAtPosition(upX, upY) == 0)
            {
              player.Move(key);
+             SetSoundVolume(bounce, 0.2);
              PlaySound(bounce);
 
            }
@@ -190,6 +196,7 @@
            if (l1.IsWallAtPosition(downX, downY) == false && l1.IsGateAtPosition(downX, downY) == 0)
            {
              player.Move(key);
+             SetSoundVolume(bounce, 0.2);
              PlaySound(bounce);
 
            }
@@ -206,6 +213,10 @@
              {
                hX = l1.holes[i].GetX();
                hY = l1.holes[i].GetY();
+
+               SetSoundVolume(jumpingHole, 1);
+               PlaySound(jumpingHole);
+
              }
 
            }
@@ -379,19 +390,17 @@
 
         if(l1.gate.size() == 1)
         {
+             SetSoundVolume(passingLevel, 0.5);
+             PlaySound(passingLevel);
             
               if (FinishTime == NULL)
               {
                 FinishTime = T.GetDuration();
                 Saveleveltime(FinishTime);
               }
-            return false;
-            
+            return false;    
         }
         else{
-
-            
             return true;
-
         }
     }

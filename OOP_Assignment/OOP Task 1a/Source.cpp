@@ -8,6 +8,8 @@ int main(){
   int screenwidth = 1000;
   int screenheight = 700;
   InitWindow(screenwidth, screenheight, "OOP Assignment 1");
+
+  InitAudioDevice();
     //window size for grid and title of window
     SetTargetFPS(60);
     //framerate (FPS - Frames per second)
