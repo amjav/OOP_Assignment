@@ -47,6 +47,11 @@ class Game
       int FinishTime;
       char* score;
       ofstream MyFile;
-      Music movementMusic = LoadMusicStream("bounce.wav");
-      
+      Sound bounce = LoadSound("bounce.wav");
+      Sound backgroundSound = LoadSound("backgroundSound.wav");
+      Sound collectingKey = LoadSound("collectingKey.wav");
+      Sound jumpingHole = LoadSound("jumpingHole.wav");
+      Sound passingLeve2 = LoadSound("passingLeve2.wav");
+      Sound passingLevel = LoadSound("passingLevel.wav");
+      Sound GamePass = LoadSound("passingLevelGame.wav"); 
 };

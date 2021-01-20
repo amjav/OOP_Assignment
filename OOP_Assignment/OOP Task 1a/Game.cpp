@@ -134,7 +134,6 @@
        int hX = 0;
        int hY = 0;
        
-       PlayMusicStream(movementMusic);
 
          if (key == KEY_LEFT)
          {
@@ -147,6 +146,7 @@
            if (l1.IsWallAtPosition(leftX, leftY) == false && l1.IsGateAtPosition(leftX, leftY) == 0)
            {
              player.Move(key);
+             PlaySound(bounce);
            }
          }
 
@@ -160,6 +160,8 @@
            if (l1.IsWallAtPosition(rightX, rightY) == false && l1.IsGateAtPosition(rightX, rightY) == 0)
            {
              player.Move(key);
+             PlaySound(bounce);
+
            }
 
          }
@@ -174,6 +176,8 @@
            if (l1.IsWallAtPosition(upX, upY) == false && l1.IsGateAtPosition(upX, upY) == 0)
            {
              player.Move(key);
+             PlaySound(bounce);
+
            }
          }
 
@@ -186,6 +190,8 @@
            if (l1.IsWallAtPosition(downX, downY) == false && l1.IsGateAtPosition(downX, downY) == 0)
            {
              player.Move(key);
+             PlaySound(bounce);
+
            }
          }
 
