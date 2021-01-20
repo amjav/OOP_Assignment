@@ -134,8 +134,8 @@
        int hX = 0;
        int hY = 0;
        
-       //void PlaySound(Sound sound); 
-       
+       PlayMusicStream(movementMusic);
+
          if (key == KEY_LEFT)
          {
 

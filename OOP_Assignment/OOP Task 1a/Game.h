@@ -47,5 +47,6 @@ class Game
       int FinishTime;
       char* score;
       ofstream MyFile;
+      Music movementMusic = LoadMusicStream("bounce.wav");
       
 };
