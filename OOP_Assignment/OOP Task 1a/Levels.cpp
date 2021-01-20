@@ -6,23 +6,30 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-//using namespace std;
 
-	/*void Levels::GetLevel() {
 
-	}*/
-
-	int Levels:: GetStartX()
+	int Levels:: GetStartX() const
 	{
 		return StartX;
 	}
 
-	int Levels:: GetStartY()
+	int Levels:: GetStartY() const
 	{
 		return StartY;
 	}
 
-	bool Levels::IsHoleAtPosition(int x, int y) {
+	int Levels:: GetExitX() const
+	{
+		return ExitX;
+	}
+	int Levels:: GetExitY() const
+	{
+		return ExitY;
+	}
+
+	//used to determine the position of the objects(hole, wall, path, key and gate)
+
+	bool Levels::IsHoleAtPosition(int &x, int &y) {
 		for (size_t i = 0; i < holes.size(); ++i)
 		{
 			if (holes[i].IsAtPosition(x, y))
@@ -34,7 +41,8 @@
 		return false;
 	}
 
-	bool Levels::IsWallAtPosition(int x, int y)
+
+	bool Levels::IsWallAtPosition(int &x, int &y)
 	{
 		for (size_t i = 0; i < walls.size(); ++i)
 		{
@@ -47,7 +55,8 @@
 		return false;
 	}
 
-	bool Levels::IsPathAtPosition(int x, int y)
+	
+	bool Levels::IsPathAtPosition(int &x, int &y)
 	{
 		for (size_t i = 0; i < path.size(); ++i)
 		{
@@ -60,7 +69,8 @@
 		return false;
 	}
 
-	char Levels::IsGateAtPosition(int x, int y)
+	
+	char Levels::IsGateAtPosition(int &x, int &y)
 	{
 		for (size_t i = 0; i < gate.size(); ++i)
 		{
@@ -73,7 +83,8 @@
 		return 0;
 	}
 
-	char Levels::IsKeyAtPosition(int x, int y)
+
+	char Levels::IsKeyAtPosition(int &x, int &y)
 	{
 		for (size_t i = 0; i < Keys.size(); ++i)
 		{
@@ -87,52 +98,60 @@
 	}
 
 
-
-	void Levels::AddWall(int i, int j) {
+	//used to add wall, key, gate, path and hole object to their corresponded vector so they can be displayed on the grid
+	void Levels::AddWall(int &i, int &j) {
 		walls.push_back(Wall(i, j));
 	}
 
-	void Levels::AddKey(int i, int j, char symbol) {
+
+	void Levels::AddKey(int &i, int &j, char symbol) {
 		Keys.push_back(Key(i, j, symbol));
 	}
 
-	void Levels::AddGate(int i, int j, char symbol) {
+
+	void Levels::AddGate(int &i, int &j, char symbol) {
 		gate.push_back(Gate(i, j, symbol));
 	}
 
-	void Levels::AddPath(int i, int j) {
+	void Levels::AddPath(int &i, int &j) {
 		path.push_back(Path(i, j));
 	}
 
-	void Levels::AddHole(int i, int j) {
+	void Levels::AddHole(int &i, int &j) {
 		holes.push_back(Hole(i, j));
 	}
 
-	void Levels::CreateLevels() {
+  //used before level is loaded so the value is not doubled.
+	void Levels::clearVectors()
+	{
+		walls.clear();
+		Keys.clear();
+		gate.clear();
+		path.clear();
+		holes.clear();
 
+		CollectedKeys.clear();
+	}
 
-		//USE A TEXT FILE TO INTIATE LEVELS
+	//used to open the right file for each level
+	void Levels::CreateLevels(string level) {
 
-	   // Create a text string, which is used to output the text file
 		string myText;
 
-		// Read from the text file
-		ifstream MyReadFile("level1.txt");
+		ifstream MyReadFile(level);
 
-		/*if (MyReadFile.is_open())
+		if (MyReadFile.is_open())
 		{
 			cout << "This is open";
-		}*/
+		}
 
-		//lineNumber
+		
 		int LineNumber = 0;
 
-		// Use a while loop together with the getline() function to read the file line by line
+		
 		while (getline(MyReadFile, myText)) {
-			// Output the text from the file
-
-			  //cout << myText << endl;
-
+			
+		  //used to determine where the keys, gets and walls are located
 			for (int i = 0; i < SIZE; i++)
 			{
 				char c = myText[i];
@@ -150,6 +169,8 @@
 					break;
 				case 'E':
 					AddGate(i, LineNumber, 'E');
+					ExitX = i;
+					ExitY = LineNumber;
 					break;
 				case 'S':
 					AddGate(i, LineNumber, 'S');
@@ -207,11 +228,9 @@
 				case 'e':
 					AddKey(i, LineNumber, 'e');
 					break;
-
 				default:
 					AddWall(i, LineNumber);
 					assert(false);
-
 				}
 
 			}
