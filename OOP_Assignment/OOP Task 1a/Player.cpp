@@ -2,17 +2,17 @@
 #include "Levels.h"
 #include "math.h"
 
-Player::Player() : symbol(PLAYER), x(0), y(0), alive(true), escaped(false), dx(0), dy(0)
+Player::Player() : symbol(PLAYER), x(0), y(0), dx(0), dy(0), dxx(0), dyy(0)
 {
    // PositionAtStart();
 }
 
-int Player::GetX()
+int Player::GetX() const
 {
     return x;
 }
 
-int Player::GetY()
+int Player::GetY() const
 {
     return y;
 }
@@ -22,24 +22,6 @@ char Player::GetSymbol() const
     return symbol;
 }
 
-void Player::SetAlive() {
- // alive =
-}
-
-bool Player::GetAlive()
-{
-    return alive;
-}
-
-void Player::SetEscaped() {
- // escaped =
-}
-
-bool Player:: GetEscaped() {
-
-    
-    return escaped;
-}
 
 bool Player::IsAtPosition(int x, int y)
 {

@@ -10,35 +10,27 @@ class Player
         Player();
 
         // assessors
-        int GetX();
-        int GetY();
+        int GetX() const;
+        int GetY() const;
         char GetSymbol() const;
-        bool GetAlive();
-        bool GetEscaped();
         bool IsAtPosition(int x, int y);
         void UpdatePosition(float dx, float dy);
         void HolePositionUpdate(int dx, int dy);
         void PositionAtStart();
-        //make const?
+        
+      
 
         // mutators
         void Move(int key);
-
-        char symbol;
+        
 
     private:
         // data members
+        char symbol;
         int  x, y;
-        bool alive;
-        bool escaped;
         float dx;
         float dy;
-        float dxx;
-        float dyy;
-        Levels l1;
-
-        // supporting functions 
-        
-        void SetAlive();
-        void SetEscaped();
+        float dxx = 0;
+        float dyy = 0;
+        Levels l1;     
 };

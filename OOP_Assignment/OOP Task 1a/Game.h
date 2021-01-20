@@ -27,11 +27,11 @@ class Game
         vector<vector<char>> PrepareGrid();
         char IsKeyVecCheck(int x, int y);
         char IsKeyCollectedCoord(int x, int y);
-        int GetCollectedKeysSize();
+        int GetCollectedKeysSize() const;
         bool CheckExitGate();
         bool CheckEndGame();
         void Saveleveltime(int time);
-        Timer GetTimer();
+        Timer GetTimer() const;
 
 
       //to do: make player private and then create get set functiions.
@@ -48,11 +48,8 @@ class Game
       char* score;
       ofstream MyFile;
       Sound bounce = LoadSound("bounce.wav");
-      Sound backgroundSound = LoadSound("backgroundSound.wav");
       Sound collectingKey = LoadSound("collectingKey.wav");
       Sound jumpingHole = LoadSound("jumpingHole.wav");
-      Sound passingLevel2 = LoadSound("passingLeve2.wav");
       Sound passingLevel = LoadSound("passingLevel.wav");
-      Sound GamePass = LoadSound("passingLevelGame.wav");
       Sound openGate = LoadSound("openGate.wav");
 };

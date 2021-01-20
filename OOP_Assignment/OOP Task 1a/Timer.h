@@ -4,10 +4,12 @@
 
 class Timer
 {
-private:
-    std::chrono::time_point<std::chrono::steady_clock> m_StartTime;
 
 public:
     void Start();
-    float GetDuration();
+    float GetDuration() const;
+
+private:
+    std::chrono::time_point<std::chrono::steady_clock> m_StartTime;
+
 };

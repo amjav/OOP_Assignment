@@ -125,7 +125,7 @@
         return 0;  
    }
 
-   int Game :: GetCollectedKeysSize()
+   int Game :: GetCollectedKeysSize() const
    {
        return l1.CollectedKeys.size();
    }
@@ -259,10 +259,9 @@
            if (CheckExitGate() == true)
            {
              CloseWindow();
+             exit(0);
            }
-
          }
-
     }
 
     /// <summary>
@@ -378,7 +377,7 @@
            MyFile.close();
     }
 
-    Timer Game::GetTimer()
+    Timer Game::GetTimer() const
     {
       return T;
     }

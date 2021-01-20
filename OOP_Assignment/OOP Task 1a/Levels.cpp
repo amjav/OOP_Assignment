@@ -13,21 +13,21 @@
 	}*/
 
 
-	int Levels:: GetStartX()
+	int Levels:: GetStartX() const
 	{
 		return StartX;
 	}
 
-	int Levels:: GetStartY()
+	int Levels:: GetStartY() const
 	{
 		return StartY;
 	}
 
-	int Levels:: GetExitX()
+	int Levels:: GetExitX() const
 	{
 		return ExitX;
 	}
-	int Levels:: GetExitY()
+	int Levels:: GetExitY() const
 	{
 		return ExitY;
 	}

@@ -7,8 +7,8 @@ class State
       State() = default;
       State(int x, int y);
         
-	  int GetX();
-      int GetY();
+	  int GetX() const;
+      int GetY() const;
       char GetSymbol() const;
       bool IsAtPosition(int x, int y);
 

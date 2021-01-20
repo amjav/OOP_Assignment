@@ -21,16 +21,13 @@ class Levels
 
 		vector<Key> CollectedKeys;
 
-		int StartX;
-		int StartY;
-		int ExitX;
-		int ExitY;
+		
 
-		int GetExitX();
-		int GetExitY();
+		int GetExitX() const;
+		int GetExitY() const;
 
-		int GetStartX();
-		int GetStartY();
+		int GetStartX() const;
+		int GetStartY() const;
 
 		
 		
@@ -51,11 +48,11 @@ class Levels
 	
 
 	private:
-		//void GetLevel();
-		//int SetLevel();
-
-		string txtfile;
-
+		 
+		int StartX;
+		int StartY;
+		int ExitX;
+		int ExitY;
 };
 
 

@@ -8,12 +8,12 @@ State::State(int x, int y)
     this->y = y;
 }
 
-int State::GetX()
+int State::GetX() const
 {
     return x;
 }
 
-int State::GetY()
+int State::GetY() const
 {
     return y;
 }
